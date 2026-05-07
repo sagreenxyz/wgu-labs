@@ -2,28 +2,28 @@
 import "../../../styles/global.css";
 
 const items = [
-	{ title: "Hand Hygiene", href: "/labs/day-01/hand-hygiene" },
-	{ title: "PPE", href: "/labs/day-01/ppe" },
-	{ title: "Vital Signs", href: "/labs/day-01/vital-signs" },
-	{ title: "Pain Assessment", href: "/labs/day-01/pain-assessment" },
-	{ title: "Transfers", href: "/labs/day-01/transfers" },
-	{ title: "Gait Belt", href: "/labs/day-01/gait-belt" },
-	{ title: "Oral Hygiene on Unconscious Patient", href: "/labs/day-01/oral-hygiene-on-unconscious-patient" },
-	{ title: "Bed Bath", href: "/labs/day-01/bed-bath" },
-	{ title: "Linen Change of an Occupied Bed", href: "/labs/day-01/linen-change-of-an-occupied-bed" },
-	{ title: "Intake and Output", href: "/labs/day-01/intake-and-output" },
-	{ title: "Urine Specimen Collection", href: "/labs/day-01/urine-specimen-collection" },
-	{ title: "Bedpan", href: "/labs/day-01/bedpan" },
-	{ title: "Blood Glucose Monitoring", href: "/labs/day-01/blood-glucose-monitoring" },
-	{ title: "Medication Administration (PO, SQ, IM, 6 Administration Rights)", href: "/labs/day-01/medication-administration" }
+	{ title: "Hand Hygiene", href: `${import.meta.env.BASE_URL}/labs/day-01/hand-hygiene` },
+	{ title: "PPE", href: `${import.meta.env.BASE_URL}/labs/day-01/ppe` },
+	{ title: "Vital Signs", href: `${import.meta.env.BASE_URL}/labs/day-01/vital-signs` },
+	{ title: "Pain Assessment", href: `${import.meta.env.BASE_URL}/labs/day-01/pain-assessment` },
+	{ title: "Transfers", href: `${import.meta.env.BASE_URL}/labs/day-01/transfers` },
+	{ title: "Gait Belt", href: `${import.meta.env.BASE_URL}/labs/day-01/gait-belt` },
+	{ title: "Oral Hygiene on Unconscious Patient", href: `${import.meta.env.BASE_URL}/labs/day-01/oral-hygiene-on-unconscious-patient` },
+	{ title: "Bed Bath", href: `${import.meta.env.BASE_URL}/labs/day-01/bed-bath` },
+	{ title: "Linen Change of an Occupied Bed", href: `${import.meta.env.BASE_URL}/labs/day-01/linen-change-of-an-occupied-bed` },
+	{ title: "Intake and Output", href: `${import.meta.env.BASE_URL}/labs/day-01/intake-and-output` },
+	{ title: "Urine Specimen Collection", href: `${import.meta.env.BASE_URL}/labs/day-01/urine-specimen-collection` },
+	{ title: "Bedpan", href: `${import.meta.env.BASE_URL}/labs/day-01/bedpan` },
+	{ title: "Blood Glucose Monitoring", href: `${import.meta.env.BASE_URL}/labs/day-01/blood-glucose-monitoring` },
+	{ title: "Medication Administration (PO, SQ, IM, 6 Administration Rights)", href: `${import.meta.env.BASE_URL}/labs/day-01/medication-administration` }
 ];
 ---
 
 <html lang="en">
 	<head>
 		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
+		<link rel="icon" type="image/svg+xml" href={`${import.meta.env.BASE_URL}/favicon.svg`} />
+		<link rel="icon" href={`${import.meta.env.BASE_URL}/favicon.ico`} />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
 		<title>Labs - Day 1</title>
@@ -32,8 +32,8 @@ const items = [
 		<main class="mx-auto max-w-6xl p-6 lg:p-10">
 			<div class="breadcrumbs text-sm mb-6">
 				<ul>
-					<li><a href="/">Home</a></li>
-					<li><a href="/labs">Labs</a></li>
+					<li><a href={import.meta.env.BASE_URL}>Home</a></li>
+					<li><a href={`${import.meta.env.BASE_URL}/labs`}>Labs</a></li>
 					<li>Day 1</li>
 				</ul>
 			</div>

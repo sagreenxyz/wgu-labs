@@ -8,8 +8,8 @@ const { scenario, patient, concepts, skills, presentation, primaryChallenge } = 
 <html lang="en">
 	<head>
 		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
+		<link rel="icon" type="image/svg+xml" href={`${import.meta.env.BASE_URL}/favicon.svg`} />
+		<link rel="icon" href={`${import.meta.env.BASE_URL}/favicon.ico`} />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{scenario.title} - {patient.name}</title>
@@ -18,9 +18,9 @@ const { scenario, patient, concepts, skills, presentation, primaryChallenge } = 
 		<main class="mx-auto max-w-7xl p-6 lg:p-10">
 			<div class="breadcrumbs text-sm mb-6">
 				<ul>
-					<li><a href="/">Home</a></li>
-					<li><a href="/simulation-learning-system">Simulation Learning System</a></li>
-					<li><a href="/simulation-learning-system/fundamentals">Fundamentals</a></li>
+					<li><a href={import.meta.env.BASE_URL}>Home</a></li>
+					<li><a href={`${import.meta.env.BASE_URL}/simulation-learning-system`}>Simulation Learning System</a></li>
+					<li><a href={`${import.meta.env.BASE_URL}/simulation-learning-system/fundamentals`}>Fundamentals</a></li>
 					<li>{patient.name}</li>
 				</ul>
 			</div>

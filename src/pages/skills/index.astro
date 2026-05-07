@@ -83,8 +83,8 @@ const allSkills = [
 <html lang="en">
 	<head>
 		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
+		<link rel="icon" type="image/svg+xml" href={`${import.meta.env.BASE_URL}/favicon.svg`} />
+		<link rel="icon" href={`${import.meta.env.BASE_URL}/favicon.ico`} />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
 		<title>Skills</title>
@@ -93,7 +93,7 @@ const allSkills = [
 		<main class="mx-auto max-w-6xl p-6 lg:p-10">
 			<div class="breadcrumbs text-sm mb-6">
 				<ul>
-					<li><a href="/">Home</a></li>
+					<li><a href={import.meta.env.BASE_URL}>Home</a></li>
 					<li>Skills</li>
 				</ul>
 			</div>
@@ -109,7 +109,7 @@ const allSkills = [
 				{allSkills.map((skill) => {
 					const slug = titleToSlug(skill.title);
 					return (
-						<a href={`/skills/${slug}`} class="card bg-base-100 shadow-md hover:shadow-xl transition-shadow border border-base-300">
+						<a href={`${import.meta.env.BASE_URL}/skills/${slug}`} class="card bg-base-100 shadow-md hover:shadow-xl transition-shadow border border-base-300">
 							<div class="card-body">
 								<h2 class="card-title text-lg line-clamp-2">{skill.title}</h2>
 								<div class="card-actions justify-end flex-wrap gap-2">

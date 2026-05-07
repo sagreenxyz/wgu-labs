@@ -5,8 +5,8 @@ import "../../../../styles/global.css";
 <html lang="en">
 	<head>
 		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
+		<link rel="icon" type="image/svg+xml" href={`${import.meta.env.BASE_URL}/favicon.svg`} />
+		<link rel="icon" href={`${import.meta.env.BASE_URL}/favicon.ico`} />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
 		<title>Labs - Day 2 - Indwelling Urinary Catheter</title>
@@ -15,9 +15,9 @@ import "../../../../styles/global.css";
 		<main class="mx-auto max-w-4xl p-6 lg:p-10">
 			<div class="breadcrumbs text-sm mb-6">
 				<ul>
-					<li><a href="/">Home</a></li>
-					<li><a href="/labs">Labs</a></li>
-					<li><a href="/labs/day-02">Day 2</a></li>
+					<li><a href={import.meta.env.BASE_URL}>Home</a></li>
+					<li><a href={`${import.meta.env.BASE_URL}/labs`}>Labs</a></li>
+					<li><a href={`${import.meta.env.BASE_URL}/labs/day-02`}>Day 2</a></li>
 					<li>Indwelling Urinary Catheter</li>
 				</ul>
 			</div>
@@ -36,19 +36,19 @@ import "../../../../styles/global.css";
 					<p>Elsevier Performance Manager video for female indwelling urinary catheter insertion.</p>
 					<div class="grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
 						<a
-							href="/labs/day-02/indwelling-urinary-catheter/catheter-female"
+							href={`${import.meta.env.BASE_URL}/labs/day-02/indwelling-urinary-catheter/catheter-female`}
 							class="btn btn-primary"
 						>
 							Inserting an Indwelling Urinary Catheter in a Female Patient
 						</a>
 						<a
-							href="/labs/day-02/indwelling-urinary-catheter/catheter-male"
+							href={`${import.meta.env.BASE_URL}/labs/day-02/indwelling-urinary-catheter/catheter-male`}
 							class="btn btn-outline"
 						>
 							Inserting an Indwelling Urinary Catheter in a Male Patient
 						</a>
 						<a
-							href="/labs/day-02/indwelling-urinary-catheter/removing-catheter"
+							href={`${import.meta.env.BASE_URL}/labs/day-02/indwelling-urinary-catheter/removing-catheter`}
 							class="btn btn-outline"
 						>
 							Removing an Indwelling Urinary Catheter

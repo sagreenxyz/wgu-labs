@@ -6,8 +6,8 @@ import SkillResourceModal from "../../../components/SkillResourceModal.astro";
 <html lang="en">
 	<head>
 		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
+		<link rel="icon" type="image/svg+xml" href={`${import.meta.env.BASE_URL}/favicon.svg`} />
+		<link rel="icon" href={`${import.meta.env.BASE_URL}/favicon.ico`} />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
 		<title>Administering Nebulized Medications</title>
@@ -16,8 +16,8 @@ import SkillResourceModal from "../../../components/SkillResourceModal.astro";
 		<main class="mx-auto max-w-4xl p-6 lg:p-10">
 			<div class="breadcrumbs text-sm mb-6">
 				<ul>
-					<li><a href="/">Home</a></li>
-					<li><a href="/skills">Skills</a></li>
+					<li><a href={import.meta.env.BASE_URL}>Home</a></li>
+					<li><a href={`${import.meta.env.BASE_URL}/skills`}>Skills</a></li>
 					<li>Administering Nebulized Medications</li>
 				</ul>
 			</div>
@@ -25,7 +25,7 @@ import SkillResourceModal from "../../../components/SkillResourceModal.astro";
 			<section class="hero bg-base-100 rounded-box shadow-xl">
 				<div class="hero-content w-full flex-col items-start gap-4">
 					<h1 class="text-4xl font-bold">Administering Nebulized Medications</h1>
-					<a href="/skills/checklists/Administering Nebulized Medications - Checklist.pdf" class="btn btn-outline resource-link">
+					<a href={`${import.meta.env.BASE_URL}/skills/checklists/Administering Nebulized Medications - Checklist.pdf`} class="btn btn-outline resource-link">
 						Checklist
 					</a>
 				</div>

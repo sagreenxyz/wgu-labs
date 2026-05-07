@@ -5,8 +5,8 @@ import "../../../../styles/global.css";
 <html lang="en">
 	<head>
 		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
+		<link rel="icon" type="image/svg+xml" href={`${import.meta.env.BASE_URL}/favicon.svg`} />
+		<link rel="icon" href={`${import.meta.env.BASE_URL}/favicon.ico`} />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
 		<title>Labs - Day 2 - Oxygen Delivery and Flow Rates</title>
@@ -15,9 +15,9 @@ import "../../../../styles/global.css";
 		<main class="mx-auto max-w-4xl p-6 lg:p-10">
 			<div class="breadcrumbs text-sm mb-6">
 				<ul>
-					<li><a href="/">Home</a></li>
-					<li><a href="/labs">Labs</a></li>
-					<li><a href="/labs/day-02">Day 2</a></li>
+					<li><a href={import.meta.env.BASE_URL}>Home</a></li>
+					<li><a href={`${import.meta.env.BASE_URL}/labs`}>Labs</a></li>
+					<li><a href={`${import.meta.env.BASE_URL}/labs/day-02`}>Day 2</a></li>
 					<li>Oxygen Delivery and Flow Rates</li>
 				</ul>
 			</div>
@@ -36,13 +36,13 @@ import "../../../../styles/global.css";
 					<p>Elsevier Performance Manager video for oxygen safety.</p>
 					<div class="grid gap-2 sm:grid-cols-2">
 						<a
-							href="/labs/day-02/oxygen-delivery-and-flow-rates/oxygen-safety"
+							href={`${import.meta.env.BASE_URL}/labs/day-02/oxygen-delivery-and-flow-rates/oxygen-safety`}
 							class="btn btn-primary"
 						>
 							Ensuring Oxygen Safety
 						</a>
 						<a
-							href="/labs/day-02/oxygen-delivery-and-flow-rates/oxygen-flow-rates"
+							href={`${import.meta.env.BASE_URL}/labs/day-02/oxygen-delivery-and-flow-rates/oxygen-flow-rates`}
 							class="btn btn-outline"
 						>
 							Setting Oxygen Flow Rates

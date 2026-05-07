@@ -6,8 +6,8 @@ import SkillResourceModal from "../../../components/SkillResourceModal.astro";
 <html lang="en">
 	<head>
 		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
+		<link rel="icon" type="image/svg+xml" href={`${import.meta.env.BASE_URL}/favicon.svg`} />
+		<link rel="icon" href={`${import.meta.env.BASE_URL}/favicon.ico`} />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
 		<title>Preventing Medication Errors</title>
@@ -16,8 +16,8 @@ import SkillResourceModal from "../../../components/SkillResourceModal.astro";
 		<main class="mx-auto max-w-4xl p-6 lg:p-10">
 			<div class="breadcrumbs text-sm mb-6">
 				<ul>
-					<li><a href="/">Home</a></li>
-					<li><a href="/skills">Skills</a></li>
+					<li><a href={import.meta.env.BASE_URL}>Home</a></li>
+					<li><a href={`${import.meta.env.BASE_URL}/skills`}>Skills</a></li>
 					<li>Preventing Medication Errors</li>
 				</ul>
 			</div>
@@ -29,7 +29,7 @@ import SkillResourceModal from "../../../components/SkillResourceModal.astro";
 						<a href="https://connect.elsevierperformancemanager.com/#/content/skills/13696/videos" class="btn btn-primary resource-link">
 							Watch Video
 						</a>
-						<a href="/skills/checklists/Preventing Medication Errors - Checklist.pdf" class="btn btn-outline resource-link">
+						<a href={`${import.meta.env.BASE_URL}/skills/checklists/Preventing Medication Errors - Checklist.pdf`} class="btn btn-outline resource-link">
 							Checklist
 						</a>
 					</div>

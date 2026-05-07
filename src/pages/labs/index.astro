@@ -4,21 +4,21 @@ import "../../styles/global.css";
 const labDays = [
 	{
 		label: "Day 1",
-		href: "/labs/day-01",
+		href: `${import.meta.env.BASE_URL}/labs/day-01`,
 		focus: "Foundational bedside skills",
 		count: 14,
 		highlights: ["Hand Hygiene", "Vital Signs", "Medication Administration"]
 	},
 	{
 		label: "Day 2",
-		href: "/labs/day-02",
+		href: `${import.meta.env.BASE_URL}/labs/day-02`,
 		focus: "Intermediate procedures",
 		count: 9,
 		highlights: ["Oxygen Delivery", "Sterile Field", "Enteral Feedings"]
 	},
 	{
 		label: "Day 3",
-		href: "/labs/day-03",
+		href: `${import.meta.env.BASE_URL}/labs/day-03`,
 		focus: "Clinical reasoning and simulation",
 		count: 5,
 		highlights: ["Nursing Process", "Concept Mapping", "Simulation cases"]
@@ -29,8 +29,8 @@ const labDays = [
 <html lang="en">
 	<head>
 		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
+		<link rel="icon" type="image/svg+xml" href={`${import.meta.env.BASE_URL}/favicon.svg`} />
+		<link rel="icon" href={`${import.meta.env.BASE_URL}/favicon.ico`} />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
 		<title>Labs</title>
@@ -39,7 +39,7 @@ const labDays = [
 		<main class="mx-auto max-w-7xl p-6 lg:p-10">
 			<div class="breadcrumbs text-sm mb-6">
 				<ul>
-					<li><a href="/">Home</a></li>
+					<li><a href={import.meta.env.BASE_URL}>Home</a></li>
 					<li>Labs</li>
 				</ul>
 			</div>
@@ -52,7 +52,7 @@ const labDays = [
 						<p class="py-3 text-lg">Choose a lab day to review the skills and topics covered in that part of the sequence.</p>
 						<div class="flex gap-2 flex-wrap">
 	
-							<a href="/labs/report" class="btn btn-outline btn-sm">Progress Report</a>
+							<a href={`${import.meta.env.BASE_URL}/labs/report`} class="btn btn-outline btn-sm">Progress Report</a>
 						</div>
 					</div>
 					<div class="stats stats-vertical shadow bg-base-200 w-full lg:w-auto">

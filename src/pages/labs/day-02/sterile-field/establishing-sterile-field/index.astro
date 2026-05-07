@@ -5,8 +5,8 @@ import "../../../../../styles/global.css";
 <html lang="en">
 	<head>
 		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
+		<link rel="icon" type="image/svg+xml" href={`${import.meta.env.BASE_URL}/favicon.svg`} />
+		<link rel="icon" href={`${import.meta.env.BASE_URL}/favicon.ico`} />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
 		<title>Labs - Day 2 - Sterile Field - Establishing and Maintaining a Sterile Field</title>
@@ -15,10 +15,10 @@ import "../../../../../styles/global.css";
 		<main class="mx-auto max-w-4xl p-6 lg:p-10">
 			<div class="breadcrumbs text-sm mb-6">
 				<ul>
-					<li><a href="/">Home</a></li>
-					<li><a href="/labs">Labs</a></li>
-					<li><a href="/labs/day-02">Day 2</a></li>
-					<li><a href="/labs/day-02/sterile-field">Sterile Field</a></li>
+					<li><a href={import.meta.env.BASE_URL}>Home</a></li>
+					<li><a href={`${import.meta.env.BASE_URL}/labs`}>Labs</a></li>
+					<li><a href={`${import.meta.env.BASE_URL}/labs/day-02`}>Day 2</a></li>
+					<li><a href={`${import.meta.env.BASE_URL}/labs/day-02/sterile-field`}>Sterile Field</a></li>
 					<li>Establishing and Maintaining a Sterile Field</li>
 				</ul>
 			</div>
@@ -36,7 +36,7 @@ import "../../../../../styles/global.css";
 					<h2 class="card-title">Learning Resources</h2>
 					<p>Open this skill task, then watch the Elsevier video.</p>
 					<div class="flex flex-wrap gap-2">
-						<a href="/labs/tasks/skill-13650" class="btn btn-primary">Open Video Task</a>
+						<a href={`${import.meta.env.BASE_URL}/labs/tasks/skill-13650`} class="btn btn-primary">Open Video Task</a>
 						<a href="https://connect.elsevierperformancemanager.com/#/content/skills/13650/videos" target="_blank" rel="noopener noreferrer" class="btn btn-outline">Open Elsevier Video</a>
 					</div>
 				</div>
