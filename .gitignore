@@ -22,3 +22,8 @@ pnpm-debug.log*
 
 # jetbrains setting folder
 .idea/
+
+# keep repository prompt files versioned
+!.github/
+!.github/prompts/
+!.github/prompts/*.prompt.md

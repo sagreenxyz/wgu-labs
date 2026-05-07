@@ -1,0 +1,149 @@
+---
+// @ts-nocheck
+import "../../../../styles/global.css";
+import { videoTasks } from "../../../../data/videoTasks";
+
+export function getStaticPaths() {
+	return videoTasks.map((task) => {
+		const taskId = task.title
+			.toLowerCase()
+			.replace(/[&]/g, "and")
+			.replace(/[^\w\s-]/g, "")
+			.replace(/\s+/g, "-")
+			.replace(/-+/g, "-")
+			.replace(/^-+|-+$/g, "");
+		return {
+			params: { taskId },
+			props: { task, taskId }
+		};
+	});
+}
+
+const { task, taskId } = Astro.props;
+const videoTitle = task.title;
+const sourcePath = `/skills/${taskId}`;
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="icon" href="/favicon.ico" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{task.title}</title>
+	</head>
+	<body class="bg-base-200 min-h-screen">
+		<main class="mx-auto max-w-5xl p-6 lg:p-10">
+			<div class="breadcrumbs text-sm mb-6">
+				<ul>
+					<li><a href="/">Home</a></li>
+					<li><a href="/labs">Labs</a></li>
+					<li>Skill Task</li>
+					<li><a href={sourcePath}>Source Skill</a></li>
+					<li>{videoTitle}</li>
+				</ul>
+			</div>
+
+			<section class="hero bg-base-100 rounded-box shadow-xl mb-8">
+				<div class="hero-content w-full flex-col items-start gap-4 lg:flex-row lg:items-center lg:justify-between">
+					<div>
+						<div class="badge badge-primary badge-outline mb-3">Skill Task</div>
+					<h1 class="text-4xl font-bold">{videoTitle}</h1>
+					<p class="text-lg opacity-80">Study, track completion, and launch the resource.</p>
+					</div>
+					<div class="flex gap-2 flex-wrap">
+						<a href={sourcePath} class="btn btn-outline">Open Source Skill Page</a>
+						<a href={task.videoUrl} target="_blank" rel="noopener noreferrer" class="btn btn-primary">Open Video</a>
+					</div>
+				</div>
+			</section>
+
+			<section class="card bg-base-100 shadow-xl border border-base-300">
+				<div class="card-body gap-6">
+					<div class="form-control">
+						<label class="label cursor-pointer justify-start gap-3">
+							<input id="task-complete" type="checkbox" class="checkbox checkbox-success" />
+							<span class="label-text text-lg">Mark as watched</span>
+						</label>
+					</div>
+
+					<div class="form-control">
+						<label class="label"><span class="label-text">Notes</span></label>
+						<textarea id="task-notes" class="textarea textarea-bordered h-40" placeholder="Add notes about what you completed, key takeaways, or follow-up steps."></textarea>
+						<label class="label"><span id="saved-status" class="label-text-alt opacity-70">Not saved yet</span></label>
+					</div>
+
+					<div class="card-actions justify-between">
+						<a href="/labs/report" class="btn btn-outline btn-sm">Progress Report</a>
+
+					</div>
+				</div>
+			</section>
+		</main>
+
+		<script id="task-meta" type="application/json" set:html={JSON.stringify({ id: taskId })}></script>
+		<script>
+			const STORAGE_KEY = "wguLabs.videoTaskStatus.v1";
+			type TaskState = { done?: boolean; notes?: string; updatedAt?: number };
+			type TaskRecord = Record<string, TaskState>;
+
+			const taskMeta = JSON.parse(document.getElementById("task-meta")?.textContent || "{}") as { id?: string };
+			const taskId = taskMeta.id;
+
+			const completeInput = document.getElementById("task-complete") as HTMLInputElement | null;
+			const notesInput = document.getElementById("task-notes") as HTMLTextAreaElement | null;
+			const savedStatus = document.getElementById("saved-status");
+
+			function loadState(): TaskRecord {
+				try {
+					return JSON.parse(localStorage.getItem(STORAGE_KEY) || "{}");
+				} catch {
+					return {};
+				}
+			}
+
+			function saveState(state: TaskRecord): void {
+				localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+			}
+
+			function updateSavedText(ts: number | undefined): void {
+				if (!ts) {
+					if (savedStatus) savedStatus.textContent = "Not saved yet";
+					return;
+				}
+				if (savedStatus) savedStatus.textContent = `Saved ${new Date(ts).toLocaleString()}`;
+			}
+
+			function persist() {
+				if (!taskId || !completeInput || !notesInput) return;
+				const state = loadState();
+				const now = Date.now();
+				state[taskId] = {
+					done: completeInput.checked,
+					notes: notesInput.value,
+					updatedAt: now
+				};
+				saveState(state);
+				updateSavedText(now);
+			}
+
+			(function init() {
+				if (!taskId || !completeInput || !notesInput) return;
+				const state = loadState();
+				const entry = state[taskId] || {};
+				completeInput.checked = Boolean(entry.done);
+				notesInput.value = entry.notes || "";
+				updateSavedText(entry.updatedAt);
+			})();
+
+			if (completeInput) completeInput.addEventListener("change", persist);
+			if (notesInput) notesInput.addEventListener("blur", persist);
+			if (notesInput) {
+				notesInput.addEventListener("input", () => {
+					if (savedStatus) savedStatus.textContent = "Unsaved changes";
+				});
+			}
+		</script>
+	</body>
+</html>

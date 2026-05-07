@@ -1,0 +1,57 @@
+---
+import "../../../styles/global.css";
+
+const items = [
+	{ title: "Oxygen Delivery and Flow Rates", href: "/labs/day-02/oxygen-delivery-and-flow-rates" },
+	{ title: "Oropharyngeal Suctioning", href: "/labs/day-02/oropharyngeal-suctioning" },
+	{ title: "Head to Toe (Full versus Focused)", href: "/labs/day-02/head-to-toe" },
+	{ title: "Sterile Gloving", href: "/labs/day-02/sterile-gloving" },
+	{ title: "Sterile Field", href: "/labs/day-02/sterile-field" },
+	{ title: "Indwelling Urinary Catheter", href: "/labs/day-02/indwelling-urinary-catheter" },
+	{ title: "Mediation Administration (Topical, Nebulizers)", href: "/labs/day-02/mediation-administration" },
+	{ title: "Nasogastric Tube Insertion and Removal", href: "/labs/day-02/nasogastric-tube-insertion-and-removal" },
+	{ title: "Enteral Feedings", href: "/labs/day-02/enteral-feedings" }
+];
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="icon" href="/favicon.ico" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<title>Labs - Day 2</title>
+	</head>
+	<body class="bg-base-200 min-h-screen">
+		<main class="mx-auto max-w-6xl p-6 lg:p-10">
+			<div class="breadcrumbs text-sm mb-6">
+				<ul>
+					<li><a href="/">Home</a></li>
+					<li><a href="/labs">Labs</a></li>
+					<li>Day 2</li>
+				</ul>
+			</div>
+			<section class="hero bg-base-100 rounded-box shadow-xl mb-8">
+				<div class="hero-content w-full flex-col items-start gap-4">
+					<div class="badge badge-primary badge-outline">Three-Day Lab Roadmap</div>
+					<h1 class="text-4xl font-bold">Day 2</h1>
+					<p class="text-lg">Intermediate procedures.</p>
+					<div class="badge badge-outline badge-lg">{items.length} skills</div>
+				</div>
+			</section>
+			<section class="card bg-base-100 shadow-xl border border-base-300">
+				<div class="card-body">
+					<h2 class="card-title">Skills and Topics</h2>
+					<div class="grid gap-2 sm:grid-cols-2">
+						{items.map((item) => (
+							<a href={item.href} class="alert bg-base-200 border border-base-300 py-2 min-h-0 hover:bg-base-300 transition-colors">
+								<span>{item.title}</span>
+							</a>
+						))}
+					</div>
+				</div>
+			</section>
+		</main>
+	</body>
+</html>

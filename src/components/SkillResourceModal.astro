@@ -1,0 +1,61 @@
+<dialog id="skill-resource-modal" class="modal">
+	<div class="modal-box w-11/12 max-w-6xl h-[90vh] p-0">
+		<div class="flex items-center justify-between p-4 border-b border-base-300">
+			<h3 id="skill-resource-modal-title" class="text-lg font-bold">Resource</h3>
+			<form method="dialog">
+				<button class="btn btn-sm btn-circle btn-ghost" aria-label="Close">x</button>
+			</form>
+		</div>
+
+		<div class="h-[calc(90vh-74px)]">
+			<iframe
+				id="skill-resource-modal-frame"
+				title="Skill Resource"
+				class="w-full h-full"
+				src="about:blank"
+			></iframe>
+		</div>
+
+		<div class="p-3 border-t border-base-300 text-sm">
+			If this resource cannot be embedded, use
+			<a id="skill-resource-modal-fallback" href="#" class="link link-primary">open directly</a>.
+		</div>
+	</div>
+	<form method="dialog" class="modal-backdrop">
+		<button>close</button>
+	</form>
+</dialog>
+
+<script>
+	const modal = document.getElementById("skill-resource-modal");
+	const frame = document.getElementById("skill-resource-modal-frame");
+	const title = document.getElementById("skill-resource-modal-title");
+	const fallback = document.getElementById("skill-resource-modal-fallback");
+
+	if (modal && frame && title && fallback) {
+		document.addEventListener("click", (event) => {
+			const target = event.target;
+			if (!(target instanceof Element)) {
+				return;
+			}
+
+			const link = target.closest("a.resource-link");
+			if (!(link instanceof HTMLAnchorElement)) {
+				return;
+			}
+
+			event.preventDefault();
+			const href = link.href;
+			const label = link.textContent?.trim() || "Resource";
+
+			title.textContent = label;
+			frame.setAttribute("src", href);
+			fallback.setAttribute("href", href);
+			(modal).showModal();
+		});
+
+		modal.addEventListener("close", () => {
+			frame.setAttribute("src", "about:blank");
+		});
+	}
+</script>

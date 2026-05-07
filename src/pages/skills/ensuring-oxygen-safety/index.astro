@@ -1,0 +1,41 @@
+---
+import "../../../styles/global.css";
+import SkillResourceModal from "../../../components/SkillResourceModal.astro";
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="icon" href="/favicon.ico" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<title>Ensuring Oxygen Safety</title>
+	</head>
+	<body class="bg-base-200 min-h-screen">
+		<main class="mx-auto max-w-4xl p-6 lg:p-10">
+			<div class="breadcrumbs text-sm mb-6">
+				<ul>
+					<li><a href="/">Home</a></li>
+					<li><a href="/skills">Skills</a></li>
+					<li>Ensuring Oxygen Safety</li>
+				</ul>
+			</div>
+
+			<section class="hero bg-base-100 rounded-box shadow-xl">
+				<div class="hero-content w-full flex-col items-start gap-4">
+					<h1 class="text-4xl font-bold">Ensuring Oxygen Safety</h1>
+					<div class="flex flex-wrap gap-2">
+						<a href="https://connect.elsevierperformancemanager.com/#/content/skills/13660/videos" class="btn btn-primary resource-link">
+							Watch Video
+						</a>
+						<a href="/skills/checklists/Ensuring Oxygen Safety - Checklist.pdf" class="btn btn-outline resource-link">
+							Checklist
+						</a>
+					</div>
+				</div>
+			</section>
+			<SkillResourceModal />
+		</main>
+	</body>
+</html>

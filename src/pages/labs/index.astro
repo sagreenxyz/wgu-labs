@@ -1,0 +1,94 @@
+---
+import "../../styles/global.css";
+
+const labDays = [
+	{
+		label: "Day 1",
+		href: "/labs/day-01",
+		focus: "Foundational bedside skills",
+		count: 14,
+		highlights: ["Hand Hygiene", "Vital Signs", "Medication Administration"]
+	},
+	{
+		label: "Day 2",
+		href: "/labs/day-02",
+		focus: "Intermediate procedures",
+		count: 9,
+		highlights: ["Oxygen Delivery", "Sterile Field", "Enteral Feedings"]
+	},
+	{
+		label: "Day 3",
+		href: "/labs/day-03",
+		focus: "Clinical reasoning and simulation",
+		count: 5,
+		highlights: ["Nursing Process", "Concept Mapping", "Simulation cases"]
+	}
+];
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="icon" href="/favicon.ico" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<title>Labs</title>
+	</head>
+	<body class="bg-base-200 min-h-screen">
+		<main class="mx-auto max-w-7xl p-6 lg:p-10">
+			<div class="breadcrumbs text-sm mb-6">
+				<ul>
+					<li><a href="/">Home</a></li>
+					<li>Labs</li>
+				</ul>
+			</div>
+
+			<section class="hero bg-base-100 rounded-box shadow-xl mb-8">
+				<div class="hero-content w-full flex-col items-start gap-6 lg:flex-row lg:items-center lg:justify-between">
+					<div class="max-w-3xl">
+						<div class="badge badge-primary badge-outline mb-4">Three-Day Lab Roadmap</div>
+						<h1 class="text-4xl font-bold">Lab navigation</h1>
+						<p class="py-3 text-lg">Choose a lab day to review the skills and topics covered in that part of the sequence.</p>
+						<div class="flex gap-2 flex-wrap">
+	
+							<a href="/labs/report" class="btn btn-outline btn-sm">Progress Report</a>
+						</div>
+					</div>
+					<div class="stats stats-vertical shadow bg-base-200 w-full lg:w-auto">
+						<div class="stat">
+							<div class="stat-title">Days</div>
+							<div class="stat-value text-3xl">{labDays.length}</div>
+						</div>
+						<div class="stat">
+							<div class="stat-title">Total Skills</div>
+							<div class="stat-value text-3xl">28</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<section class="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+				{labDays.map((day) => (
+					<a href={day.href} class="card bg-base-100 shadow-xl border border-base-300 hover:shadow-2xl transition-shadow">
+						<div class="card-body">
+							<div class="flex items-center justify-between gap-3">
+								<h2 class="card-title text-2xl">{day.label}</h2>
+								<div class="badge badge-primary badge-outline">{day.count} skills</div>
+							</div>
+							<p class="text-sm opacity-70">{day.focus}</p>
+							<div class="flex flex-wrap gap-2 mt-2">
+								{day.highlights.map((item) => (
+									<span class="badge badge-outline">{item}</span>
+								))}
+							</div>
+							<div class="card-actions justify-end mt-4">
+								<span class="btn btn-primary btn-sm">Open {day.label}</span>
+							</div>
+						</div>
+					</a>
+				))}
+			</section>
+		</main>
+	</body>
+</html>

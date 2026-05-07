@@ -1,0 +1,162 @@
+---
+import "../../../styles/global.css";
+import { videoTasks } from "../../../data/videoTasks";
+
+const day01Total = videoTasks.filter((task) => task.day === "day-01").length;
+const day02Total = videoTasks.filter((task) => task.day === "day-02").length;
+const day03Total = videoTasks.filter((task) => task.day === "day-03").length;
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="icon" href="/favicon.ico" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<title>My Learning Progress</title>
+	</head>
+	<body class="bg-base-200 min-h-screen">
+		<main class="mx-auto max-w-7xl p-6 lg:p-10">
+			<div class="breadcrumbs text-sm mb-6">
+				<ul>
+					<li><a href="/">Home</a></li>
+					<li><a href="/labs">Labs</a></li>
+					<li>Progress Report</li>
+				</ul>
+			</div>
+
+			<section class="hero bg-base-100 rounded-box shadow-xl mb-8">
+				<div class="hero-content w-full flex-col items-start gap-4 lg:flex-row lg:items-center lg:justify-between">
+					<div>
+						<div class="badge badge-secondary badge-outline mb-3">Three-Day Lab Sequence</div>
+						<h1 class="text-4xl font-bold">My Learning Progress</h1>
+						<p class="text-lg opacity-80">A summary of your video watching progress across the three-day lab sequence.</p>
+					</div>
+				</div>
+			</section>
+
+			<section class="grid gap-6 md:grid-cols-3 mb-8">
+				<div class="card bg-base-100 shadow-xl border border-base-300"><div class="card-body"><h2 class="card-title">Total Videos</h2><div id="metric-total" class="text-4xl font-bold">{videoTasks.length}</div></div></div>
+				<div class="card bg-base-100 shadow-xl border border-base-300"><div class="card-body"><h2 class="card-title">Watched</h2><div id="metric-complete" class="text-4xl font-bold">0</div></div></div>
+				<div class="card bg-base-100 shadow-xl border border-base-300"><div class="card-body"><h2 class="card-title">Watch Rate</h2><div id="metric-rate" class="text-4xl font-bold">0%</div></div></div>
+			</section>
+
+			<section class="card bg-base-100 shadow-xl border border-base-300 mb-8">
+				<div class="card-body">
+					<h2 class="card-title mb-2">Day-by-Day Status</h2>
+					<div class="overflow-x-auto">
+						<table class="table table-zebra">
+							<thead>
+								<tr><th>Day</th><th>Progress</th><th>Watched</th></tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>Day 1</td>
+									<td><progress id="progress-day-01" class="progress progress-primary w-56" value="0" max={Math.max(1, day01Total)}></progress></td>
+									<td id="count-day-01">0 / {day01Total}</td>
+								</tr>
+								<tr>
+									<td>Day 2</td>
+									<td><progress id="progress-day-02" class="progress progress-primary w-56" value="0" max={Math.max(1, day02Total)}></progress></td>
+									<td id="count-day-02">0 / {day02Total}</td>
+								</tr>
+								<tr>
+									<td>Day 3</td>
+									<td><progress id="progress-day-03" class="progress progress-primary w-56" value="0" max={Math.max(1, day03Total)}></progress></td>
+									<td id="count-day-03">0 / {day03Total}</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</section>
+
+			<section class="card bg-base-100 shadow-xl border border-base-300">
+				<div class="card-body">
+					<h2 class="card-title">Video Library</h2>
+					<div class="overflow-x-auto">
+						<table class="table table-zebra">
+							<thead>
+								<tr><th>Status</th><th>Video</th><th>Day</th><th>Open</th></tr>
+							</thead>
+							<tbody>
+								{videoTasks.map((task) => (
+									<tr data-report-row={task.id}>
+										<td><span class="badge" data-report-status={task.id}>Open</span></td>
+										<td>{task.title}</td>
+										<td>{task.dayLabel}</td>
+										<td><a href={task.taskPath} class="btn btn-ghost btn-xs">Watch</a></td>
+									</tr>
+								))}
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</section>
+		</main>
+
+		<script id="task-data" type="application/json" set:html={JSON.stringify(videoTasks)}></script>
+		<script>
+			const STORAGE_KEY = "wguLabs.videoTaskStatus.v1";
+			type TaskState = { done?: boolean; notes?: string; updatedAt?: number };
+			type TaskRecord = Record<string, TaskState>;
+			type TaskMeta = { id: string; day: string; taskPath: string };
+
+			const tasks = JSON.parse(document.getElementById("task-data")?.textContent || "[]") as TaskMeta[];
+
+			function byId(id: string): HTMLElement | null {
+				return document.getElementById(id);
+			}
+
+			function loadState(): TaskRecord {
+				try {
+					return JSON.parse(localStorage.getItem(STORAGE_KEY) || "{}");
+				} catch {
+					return {};
+				}
+			}
+
+			function render() {
+				const state = loadState();
+				let complete = 0;
+				const dayCounts: Record<string, number> = { "day-01": 0, "day-02": 0, "day-03": 0 };
+
+				tasks.forEach((task) => {
+					const done = Boolean(state[task.id]?.done);
+					const badge = document.querySelector(`[data-report-status="${task.id}"]`);
+					if (badge) {
+									badge.textContent = done ? "Watched" : "Not watched";
+						badge.className = done ? "badge badge-success" : "badge badge-ghost";
+					}
+					if (done) {
+						complete += 1;
+						dayCounts[task.day] += 1;
+					}
+				});
+
+				const rate = tasks.length ? Math.round((complete / tasks.length) * 100) : 0;
+				const completeEl = byId("metric-complete");
+				if (completeEl) completeEl.textContent = String(complete);
+				const rateEl = byId("metric-rate");
+				if (rateEl) rateEl.textContent = `${rate}%`;
+
+				const p1 = byId("progress-day-01") as HTMLProgressElement | null;
+				const p2 = byId("progress-day-02") as HTMLProgressElement | null;
+				const p3 = byId("progress-day-03") as HTMLProgressElement | null;
+				if (p1) p1.value = dayCounts["day-01"];
+				if (p2) p2.value = dayCounts["day-02"];
+				if (p3) p3.value = dayCounts["day-03"];
+
+				const day1El = byId("count-day-01");
+				if (day1El) day1El.textContent = `${dayCounts["day-01"]} / ${tasks.filter((t) => t.day === "day-01").length}`;
+				const day2El = byId("count-day-02");
+				if (day2El) day2El.textContent = `${dayCounts["day-02"]} / ${tasks.filter((t) => t.day === "day-02").length}`;
+				const day3El = byId("count-day-03");
+				if (day3El) day3El.textContent = `${dayCounts["day-03"]} / ${tasks.filter((t) => t.day === "day-03").length}`;
+			}
+
+			render();
+		</script>
+	</body>
+</html>

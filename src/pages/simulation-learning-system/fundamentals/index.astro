@@ -1,0 +1,82 @@
+---
+import "../../../styles/global.css";
+import bernadetteCase from "./02-bernadette-jackson/case-data.json";
+import lisaCase from "./05-lisa-rae/case-data.json";
+
+const cases = [bernadetteCase, lisaCase];
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="icon" href="/favicon.ico" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<title>Fundamentals Cases</title>
+	</head>
+	<body class="bg-base-200 min-h-screen">
+		<main class="mx-auto max-w-7xl p-6 lg:p-10">
+			<div class="breadcrumbs text-sm mb-6">
+				<ul>
+					<li><a href="/">Home</a></li>
+					<li><a href="/simulation-learning-system">Simulation Learning System</a></li>
+					<li>Fundamentals</li>
+				</ul>
+			</div>
+
+			<section class="hero bg-base-100 rounded-box shadow-xl mb-8">
+				<div class="hero-content w-full flex-col items-start">
+					<div class="badge badge-primary badge-outline mb-4">Simulation Learning System</div>
+					<h1 class="text-4xl font-bold">Fundamentals</h1>
+					<p class="max-w-3xl py-3 text-lg">
+						Browse the currently available fundamentals cases. Each card links to a case page built from its local JSON data.
+					</p>
+					<div class="stats stats-horizontal shadow bg-base-200 w-full max-w-md">
+						<div class="stat">
+							<div class="stat-title">Available Cases</div>
+							<div class="stat-value text-3xl">{cases.length}</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<section class="grid gap-6 md:grid-cols-2">
+				{cases.map((entry) => (
+					<a href={`/simulation-learning-system/fundamentals/${entry.scenario.id === "fundamentals-2" ? "02-bernadette-jackson" : "05-lisa-rae"}`} class="card bg-base-100 shadow-xl border border-base-300 hover:shadow-2xl transition-shadow">
+						<div class="card-body">
+							<div class="flex flex-wrap gap-2">
+								<div class="badge badge-primary badge-outline">{entry.scenario.title}</div>
+								<div class="badge badge-accent badge-outline">{entry.presentation.diagnoses.primary}</div>
+								<div class="badge badge-info badge-outline">{entry.presentation.diagnoses.secondary}</div>
+							</div>
+
+							<h2 class="card-title text-2xl mt-2">{entry.patient.name}</h2>
+							<p class="text-sm opacity-70">{entry.patient.age} years old · {entry.patient.gender}</p>
+							<p>{entry.presentation.summary}</p>
+
+							<div class="divider my-1"></div>
+
+							<div>
+								<p class="font-semibold mb-2">Concepts</p>
+								<div class="flex flex-wrap gap-2">
+									{entry.concepts.slice(0, 4).map((concept) => (
+										<span class="badge badge-outline">{concept}</span>
+									))}
+									{entry.concepts.length > 4 && <span class="badge badge-ghost">+{entry.concepts.length - 4} more</span>}
+								</div>
+							</div>
+
+							<div class="card-actions justify-between items-center mt-4">
+								<div class="text-sm opacity-70">
+									<span class="font-medium">Scenario:</span> {entry.scenario.scenarioTime}
+								</div>
+								<span class="btn btn-primary btn-sm">Open Case</span>
+							</div>
+						</div>
+					</a>
+				))}
+			</section>
+		</main>
+	</body>
+</html>

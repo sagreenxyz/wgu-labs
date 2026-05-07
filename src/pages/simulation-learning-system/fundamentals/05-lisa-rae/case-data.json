@@ -1,0 +1,41 @@
+{
+  "scenario": {
+    "id": "fundamentals-5",
+    "title": "Fundamentals 5",
+    "scenarioTime": "20-30 minutes",
+    "debriefingTime": "20-30 minutes"
+  },
+  "patient": {
+    "name": "Lisa Rae",
+    "age": 78,
+    "gender": "Female"
+  },
+  "concepts": [
+    "Vital signs",
+    "Assessment",
+    "Communication",
+    "Older adult",
+    "Patient safety",
+    "Skin integrity",
+    "Patient education",
+    "Documentation and informatics"
+  ],
+  "skills": [
+    "Assess patient",
+    "Utilize therapeutic communication",
+    "Assess fall risk using Morse Fall Scale",
+    "Assess pressure ulcer risk using Braden Scale",
+    "Implement fall prevention measures",
+    "Implement pressure ulcer prevention measures",
+    "Provide patient education and support",
+    "Access and document care in the EHR"
+  ],
+  "presentation": {
+    "summary": "Patient with a history of falls is admitted with dizziness and a mechanical fall. Patient is incontinent of urine and has limited mobility.",
+    "diagnoses": {
+      "primary": "Hypotension",
+      "secondary": "Mechanical fall"
+    }
+  },
+  "primaryChallenge": "Learner assesses and implements nursing care for a patient at high risk for falls and pressure ulcer development."
+}
