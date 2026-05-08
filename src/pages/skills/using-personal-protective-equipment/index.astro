@@ -32,9 +32,138 @@ import SkillResourceModal from "../../../components/SkillResourceModal.astro";
 						<a href={`${import.meta.env.BASE_URL}/skills/checklists/Using Personal Protective Equipment and Isolation Precautions - Checklist.pdf`} class="btn btn-outline resource-link">
 							Checklist
 						</a>
+						<a href="https://lrps.wgu.edu/provision/340282746" target="_blank" rel="noopener noreferrer" class="btn btn-secondary resource-link">
+							Open LRPS
+						</a>
 					</div>
 				</div>
 			</section>
+
+			<section class="card bg-base-100 shadow-xl mt-6">
+				<div class="card-body">
+					<h2 class="text-2xl font-bold">Summary</h2>
+					<ul class="list-disc list-outside ml-4 space-y-1 text-sm leading-7 mb-4">
+						<li>Review isolation precautions and gather supplies before entering the room.</li>
+						<li>Perform hand hygiene before donning PPE.</li>
+						<li>Don PPE in order: gown, mask/respirator, eye protection, then gloves.</li>
+						<li>Ensure gown coverage and glove cuffs over gown sleeves; use latex-free gloves if indicated.</li>
+						<li>Provide emotional support and explain isolation to the patient and family.</li>
+						<li>Dispose of contaminated equipment per agency policy and keep room door closed as required.</li>
+						<li>Doff PPE in sequence: gloves, eyewear, gown, then mask (respirator outside room for airborne precautions).</li>
+						<li>Avoid contact with contaminated PPE surfaces during removal and perform hand hygiene after removal.</li>
+						<li>Document care provided, patient response to isolation, and teaching reinforced.</li>
+					</ul>
+
+					<h2 class="text-2xl font-bold mt-2">Checklist</h2>
+					<p class="text-sm opacity-70">Check off each step as you complete it. Progress resets on page refresh.</p>
+					<div id="checklist-progress" class="my-3">
+						<div class="flex justify-between text-xs mb-1">
+							<span id="checklist-count" class="opacity-70">0 of 30 completed</span>
+							<button onclick="resetChecklist()" class="btn btn-xs btn-ghost opacity-60">Reset</button>
+						</div>
+						<progress id="checklist-bar" class="progress progress-success w-full" value="0" max="30"></progress>
+					</div>
+
+					<div class="space-y-5 text-sm">
+						<div>
+							<h3 class="font-semibold text-base mb-2">Planning</h3>
+							<div class="space-y-2">
+								<label class="flex items-start gap-3 cursor-pointer"><input type="checkbox" class="checkbox checkbox-sm mt-0.5 cl-item" /><span>Assessed the patient and reviewed the patient history.</span></label>
+								<label class="flex items-start gap-3 cursor-pointer"><input type="checkbox" class="checkbox checkbox-sm mt-0.5 cl-item" /><span>Verified provider orders and identified required isolation precautions.</span></label>
+								<label class="flex items-start gap-3 cursor-pointer"><input type="checkbox" class="checkbox checkbox-sm mt-0.5 cl-item" /><span>Gathered all required equipment and supplies.</span></label>
+							</div>
+						</div>
+
+						<div>
+							<h3 class="font-semibold text-base mb-2">Procedure Steps (Donning and Entry)</h3>
+							<div class="space-y-2">
+								<label class="flex items-start gap-3 cursor-pointer"><input type="checkbox" class="checkbox checkbox-sm mt-0.5 cl-item" /><span>Performed hand hygiene before donning PPE.</span></label>
+								<label class="flex items-start gap-3 cursor-pointer"><input type="checkbox" class="checkbox checkbox-sm mt-0.5 cl-item" /><span>Selected barrier protection based on isolation type and agency policy.</span></label>
+								<label class="flex items-start gap-3 cursor-pointer"><input type="checkbox" class="checkbox checkbox-sm mt-0.5 cl-item" /><span>Applied gown first, covered outer garments, and secured neck and waist.</span></label>
+								<label class="flex items-start gap-3 cursor-pointer"><input type="checkbox" class="checkbox checkbox-sm mt-0.5 cl-item" /><span>Applied mask/face shield/fitted N95 as indicated by isolation precautions.</span></label>
+								<label class="flex items-start gap-3 cursor-pointer"><input type="checkbox" class="checkbox checkbox-sm mt-0.5 cl-item" /><span>For N95: positioned both straps, molded nosepiece, and verified seal.</span></label>
+								<label class="flex items-start gap-3 cursor-pointer"><input type="checkbox" class="checkbox checkbox-sm mt-0.5 cl-item" /><span>Applied eye protection or face shield as required.</span></label>
+								<label class="flex items-start gap-3 cursor-pointer"><input type="checkbox" class="checkbox checkbox-sm mt-0.5 cl-item" /><span>Applied clean unpowdered gloves; used latex-free if allergy present; pulled cuffs over gown sleeves.</span></label>
+								<label class="flex items-start gap-3 cursor-pointer"><input type="checkbox" class="checkbox checkbox-sm mt-0.5 cl-item" /><span>Entered isolation room, closed door, arranged supplies, and followed policy for reusable items.</span></label>
+								<label class="flex items-start gap-3 cursor-pointer"><input type="checkbox" class="checkbox checkbox-sm mt-0.5 cl-item" /><span>Introduced self and identified patient with two identifiers.</span></label>
+								<label class="flex items-start gap-3 cursor-pointer"><input type="checkbox" class="checkbox checkbox-sm mt-0.5 cl-item" /><span>Explained procedure, addressed questions, and assessed patient/family emotions related to isolation.</span></label>
+							</div>
+						</div>
+
+						<div>
+							<h3 class="font-semibold text-base mb-2">Medication and Ongoing Care</h3>
+							<div class="space-y-2">
+								<label class="flex items-start gap-3 cursor-pointer"><input type="checkbox" class="checkbox checkbox-sm mt-0.5 cl-item" /><span>Administered medications while maintaining standard and isolation precautions.</span></label>
+								<label class="flex items-start gap-3 cursor-pointer"><input type="checkbox" class="checkbox checkbox-sm mt-0.5 cl-item" /><span>Disposed oral medication wrappers/cups in room receptacle.</span></label>
+								<label class="flex items-start gap-3 cursor-pointer"><input type="checkbox" class="checkbox checkbox-sm mt-0.5 cl-item" /><span>Used gloves for injections and discarded syringes/needles in room sharps container.</span></label>
+								<label class="flex items-start gap-3 cursor-pointer"><input type="checkbox" class="checkbox checkbox-sm mt-0.5 cl-item" /><span>Handled reusable syringe holder per policy for removal and disinfection.</span></label>
+								<label class="flex items-start gap-3 cursor-pointer"><input type="checkbox" class="checkbox checkbox-sm mt-0.5 cl-item" /><span>Maintained isolation technique throughout care: limited surface contact and kept hands away from face.</span></label>
+								<label class="flex items-start gap-3 cursor-pointer"><input type="checkbox" class="checkbox checkbox-sm mt-0.5 cl-item" /><span>Changed torn/heavily contaminated gloves, performed hand hygiene, and donned new gloves.</span></label>
+								<label class="flex items-start gap-3 cursor-pointer"><input type="checkbox" class="checkbox checkbox-sm mt-0.5 cl-item" /><span>Informed patient when care team would return and offered needed personal-care/time-passing items.</span></label>
+								<label class="flex items-start gap-3 cursor-pointer"><input type="checkbox" class="checkbox checkbox-sm mt-0.5 cl-item" /><span>Disposed contaminated supplies/equipment safely before leaving room.</span></label>
+							</div>
+						</div>
+
+						<div>
+							<h3 class="font-semibold text-base mb-2">PPE Removal (Doffing)</h3>
+							<div class="space-y-2">
+								<label class="flex items-start gap-3 cursor-pointer"><input type="checkbox" class="checkbox checkbox-sm mt-0.5 cl-item" /><span>Closed the door on exit when airborne precautions/negative airflow room requirements applied.</span></label>
+								<label class="flex items-start gap-3 cursor-pointer"><input type="checkbox" class="checkbox checkbox-sm mt-0.5 cl-item" /><span>Inspected PPE for contamination/cuts/tears and disinfected per policy if indicated before doffing.</span></label>
+								<label class="flex items-start gap-3 cursor-pointer"><input type="checkbox" class="checkbox checkbox-sm mt-0.5 cl-item" /><span>Removed gloves using inside-out technique without touching contaminated outer surfaces.</span></label>
+								<label class="flex items-start gap-3 cursor-pointer"><input type="checkbox" class="checkbox checkbox-sm mt-0.5 cl-item" /><span>Performed hand hygiene after glove removal and followed occupational exposure policy for tears/cuts.</span></label>
+								<label class="flex items-start gap-3 cursor-pointer"><input type="checkbox" class="checkbox checkbox-sm mt-0.5 cl-item" /><span>Removed eyewear/face shield by headband or earpieces and disinfected reusable eye protection.</span></label>
+								<label class="flex items-start gap-3 cursor-pointer"><input type="checkbox" class="checkbox checkbox-sm mt-0.5 cl-item" /><span>Removed gown by touching inside only, rolled/folded inside-out, and discarded in correct receptacle.</span></label>
+								<label class="flex items-start gap-3 cursor-pointer"><input type="checkbox" class="checkbox checkbox-sm mt-0.5 cl-item" /><span>Removed mask last; for airborne isolation, removed N95/respirator outside the room per policy.</span></label>
+								<label class="flex items-start gap-3 cursor-pointer"><input type="checkbox" class="checkbox checkbox-sm mt-0.5 cl-item" /><span>For N95 removal: tilted head forward, removed bottom then top strap, avoided touching front, disposed/stored per policy.</span></label>
+								<label class="flex items-start gap-3 cursor-pointer"><input type="checkbox" class="checkbox checkbox-sm mt-0.5 cl-item" /><span>Removed gloves (if re-donned for respirator handling) and performed final hand hygiene.</span></label>
+							</div>
+						</div>
+
+						<div>
+							<h3 class="font-semibold text-base mb-2">Documentation</h3>
+							<div class="space-y-2">
+								<label class="flex items-start gap-3 cursor-pointer"><input type="checkbox" class="checkbox checkbox-sm mt-0.5 cl-item" /><span>Documented procedures performed, patient response to isolation, and education offered/reinforced.</span></label>
+							</div>
+						</div>
+					</div>
+
+					<h2 class="text-2xl font-bold">Transcript</h2>
+					<div class="space-y-3 text-sm leading-7">
+						<p>When a patient has an infection or is thought to have been colonized by certain pathogens, health care workers follow specific infection prevention and control practices. Wearing personal protective equipment, or PPE, reduces the risk of infection for patients and other health care workers.</p>
+						<p>Before using PPE, assess the patient, and review his medical history to see if isolation precautions have been ordered. If so, review them to determine which barriers you'll need to use. Then perform hand hygiene. Assemble all the equipment you'll need to care for the patient. Then prepare to enter the isolation room.</p>
+						<p>If you'll be wearing a gown, put it on first, followed by your mask or respirator, goggles or face shield, and gloves. Make sure the gown covers all of your outer garments. Pull the sleeves down to your wrists, and fasten the Velcro or tie the top strings securely at your neck and waist. If the gown is too small, use two gowns. Put the first gown on like a coat and tie it in front, and then put the second gown on in the usual way and tie it in back.</p>
+						<p>Then put on a surgical mask or fitted respirator. The type of mask you select and whether fit testing is needed will depend on the type of isolation precautions being observed for your patient. Before using a respirator, medical evaluation and fit testing are required. Your goggles or other eyewear should fit snugly. If you wear prescription glasses, you can use a face shield instead.</p>
+						<p>Apply clean, unpowdered gloves. If you or your patient has a latex allergy, the gloves should also be latex free. Bring the cuff of each glove over the edge of the gown sleeve.</p>
+						<p>Enter the patient's room, and arrange your supplies and equipment near the bedside. Introduce yourself to the patient and his family, and explain why isolation precautions have been ordered. Give everyone a chance to ask questions. The patient may be lonely, bored, or depressed. Be alert for such emotions, particularly if your patient has a decreased appetite or is having trouble sleeping.</p>
+						<p>When you finish caring for your patient, let him know when you plan to return. Ask if he needs any personal care items, and offer to bring new books or magazines to help pass the time. Follow your health care agency's policy regarding the disposal of contaminated equipment and supplies. Remember to close the door when you leave.</p>
+						<p>Removal of PPE follows a specific sequence: gloves, eyewear, gown, and finally, the mask. Remove your first glove by grasping the cuff and pulling the glove inside-out, over your hand. Hold this glove in your gloved hand. Then slide the fingers of your other hand under the remaining glove at the level of your wrist. Peel the second glove over the first, and discard them in the proper container.</p>
+						<p>Now remove your eyewear, face shield, or goggles. Handle the item by its headband or earpieces, and discard it appropriately. Now remove your gown by first untying the neck strings (or releasing the Velcro) and then untying the back strings. Allow the gown to fall from your shoulders, touching only the inside. Pull your hands out of the sleeves without touching the outside of the gown. Hold the gown inside, at the shoulder seams, and fold it inside-out into a bundle. Discard it in the trash or linen bag as needed.</p>
+						<p>Your face mask comes off last. If the mask is secured over your ears, remove the elastic and pull the mask away from your face. If the mask ties on, untie first the bottom string and then the top string. Drop the used mask into the trash receptacle, being careful not to touch the outer surface of the mask. If the patient is under airborne precautions, your mask or respirator should be removed outside of the patient's room for your protection.</p>
+						<p>When you leave, remember to close the door. A closed door is required for patients under isolation precautions or in a negative-airflow room. Then perform hand hygiene. Follow up by documenting any procedures you performed, and note how the patient is dealing with his isolation. Also, document any patient education you offered or reinforced.</p>
+					</div>
+				</div>
+			</section>
+
+			<script>
+				const items = document.querySelectorAll('.cl-item');
+				const bar = document.getElementById('checklist-bar') as HTMLProgressElement;
+				const count = document.getElementById('checklist-count');
+				const total = items.length;
+
+				function updateProgress() {
+					const checked = document.querySelectorAll('.cl-item:checked').length;
+					bar.value = checked;
+					count.textContent = `${checked} of ${total} completed`;
+				}
+
+				items.forEach(cb => cb.addEventListener('change', updateProgress));
+				updateProgress();
+
+				(window as any).resetChecklist = () => {
+					items.forEach((cb: any) => { cb.checked = false; });
+					updateProgress();
+				};
+			</script>
 			<SkillResourceModal />
 		</main>
 	</body>

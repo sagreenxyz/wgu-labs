@@ -44,6 +44,11 @@
 				return;
 			}
 
+			// Respect explicit new-tab links and let the browser handle them.
+			if (link.target === "_blank") {
+				return;
+			}
+
 			event.preventDefault();
 			const href = link.href;
 			const label = link.textContent?.trim() || "Resource";

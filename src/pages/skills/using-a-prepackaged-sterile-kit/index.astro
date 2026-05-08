@@ -25,11 +25,81 @@ import SkillResourceModal from "../../../components/SkillResourceModal.astro";
 			<section class="hero bg-base-100 rounded-box shadow-xl">
 				<div class="hero-content w-full flex-col items-start gap-4">
 					<h1 class="text-4xl font-bold">Using a Prepackaged Sterile Kit</h1>
-					<a href="https://connect.elsevierperformancemanager.com/#/content/skills/13653/videos" class="btn btn-primary resource-link">
-						Watch Video
-					</a>
+					<div class="flex flex-wrap gap-2">
+						<a href="https://connect.elsevierperformancemanager.com/#/content/skills/13653/videos" class="btn btn-primary resource-link">
+							Watch Video
+						</a>
+						<a href="https://lrps.wgu.edu/provision/340283058" target="_blank" rel="noopener noreferrer" class="btn btn-secondary resource-link">
+							Open LRPS
+						</a>
+					</div>
 				</div>
 			</section>
+
+			<section class="card bg-base-100 shadow-xl mt-6 overflow-hidden">
+				<div class="card-body p-0">
+					<div role="tablist" class="tabs tabs-border tabs-lg w-full px-4 pt-2">
+
+						<input type="radio" name="page_tabs" role="tab" class="tab font-semibold" aria-label="Overview" checked />
+						<div role="tabpanel" class="tab-content p-4 space-y-6">
+							<div>
+								<h2 class="text-xl font-bold mb-3">Summary</h2>
+								<ul class="list-disc list-outside ml-4 space-y-1 text-sm">
+									<li>Ensure the prepackaged sterile kit is intact before use.</li>
+									<li>Apply the appropriate personal protective equipment based on the procedure.</li>
+									<li>Select a clean, flat, dry work surface above waist level.</li>
+									<li>Place the sterile kit on the work surface and open the outer cover.</li>
+									<li>Open the first flap away from your body while keeping your arm clear of the sterile field.</li>
+									<li>Touch only the 1-inch outer margin of the sterile wrap.</li>
+									<li>Open the side flaps one at a time and keep your arm to the side, never over the sterile surface.</li>
+									<li>Open the final innermost flap by stepping back and pulling it toward you.</li>
+								</ul>
+							</div>
+
+							<div>
+								<h2 class="text-xl font-bold mb-3">Opening a Sterile Package</h2>
+								<div class="grid gap-4 md:grid-cols-2">
+									<figure class="rounded-box overflow-hidden border border-base-300 bg-base-200">
+										<img
+											src={`${import.meta.env.BASE_URL}/skills/images/open-sterile-package.png`}
+											alt="Nurse opening the first flap of a sterile package away from the body"
+											class="w-full h-auto"
+										/>
+									</figure>
+									<figure class="rounded-box overflow-hidden border border-base-300 bg-base-200">
+										<img
+											src={`${import.meta.env.BASE_URL}/skills/images/opened-sterile-packaging.png`}
+											alt="Opened sterile packaging with corners offset from table corners"
+											class="w-full h-auto"
+										/>
+									</figure>
+								</div>
+								<p class="text-sm leading-7 mt-3">
+									This represents opened sterile packaging. Note that the points of the package wrap are offset from the corners of the table and that the first corner to be opened is the one pointing away from the nurse.
+								</p>
+							</div>
+						</div>
+
+						<input type="radio" name="page_tabs" role="tab" class="tab font-semibold" aria-label="Transcript" />
+						<div role="tabpanel" class="tab-content p-4 space-y-3 text-sm">
+							<p>
+								To use a prepackaged sterile kit, ensure that the kit is intact. If necessary, apply the appropriate personal protective equipment for the procedure you plan to perform. Select a clean, flat, dry work surface above the level of your waist. To prepare a sterile work surface using a sterile commercial kit or pack containing sterile items, place the sterile kit or pack on the work surface you've selected. Then open the outside cover, remove the package, and place it on the work surface.
+							</p>
+							<p>
+								Grasp the outer surface of the tip of the outermost flap. Open this flap away from your body, keeping your arm clear of the sterile field. Remember not to touch any part of the sterile wrap except the 1-inch margin around the edge, which is considered to be contaminated.
+							</p>
+							<p>
+								Next, grasp the outer surface of the tip of the first side flap. Open this flap, pulling it to the side and allowing it to fall to the table. Keep your arm away from the sterile surface. Now open the second side flap by pulling it to the side and allowing it to fall to the table. Again, be sure to keep your arm to the side, and not over any part of the sterile surface.
+							</p>
+							<p>
+								Next, grasp the outside border of the last and innermost flap of the package. Stand away from the sterile package, and pull back this flap, allowing it to fall flat onto the table.
+							</p>
+						</div>
+
+					</div>
+				</div>
+			</section>
+
 			<SkillResourceModal />
 		</main>
 	</body>

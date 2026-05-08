@@ -25,12 +25,90 @@ import SkillResourceModal from "../../../components/SkillResourceModal.astro";
 			<section class="hero bg-base-100 rounded-box shadow-xl">
 				<div class="hero-content w-full flex-col items-start gap-4">
 					<h1 class="text-4xl font-bold">Administering Nebulized Medications</h1>
-					<a href={`${import.meta.env.BASE_URL}/skills/checklists/Administering Nebulized Medications - Checklist.pdf`} class="btn btn-outline resource-link">
-						Checklist
-					</a>
+					<div class="flex flex-wrap gap-2">
+						<a href={`${import.meta.env.BASE_URL}/skills/checklists/Administering Nebulized Medications - Checklist.pdf`} class="btn btn-outline resource-link">
+							Checklist
+						</a>
+					</div>
+				</div>
+			</section>
+
+			<section class="card bg-base-100 shadow-xl mt-6">
+				<div class="card-body">
+					<h2 class="text-2xl font-bold">Checklist</h2>
+					<div class="flex items-center gap-4 mb-2">
+						<progress id="checklist-bar" class="progress progress-success w-full" value="0" max="30"></progress>
+						<span class="text-sm font-semibold whitespace-nowrap"><span id="checklist-count">0</span> / 30</span>
+					</div>
+					<button onclick="resetChecklist()" class="btn btn-sm btn-outline mb-4">Reset</button>
+
+					<h3 class="font-semibold mt-2">Preparation</h3>
+					<ul class="space-y-1 mb-4">
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm mt-1 cl-item" /><span>Verified the healthcare provider's order.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm mt-1 cl-item" /><span>Ensured privacy and performed hand hygiene.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm mt-1 cl-item" /><span>Introduced self to the patient and family, when present.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm mt-1 cl-item" /><span>Identified the patient using two identifiers.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm mt-1 cl-item" /><span>Asked the patient if he or she had any drug or other allergies.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm mt-1 cl-item" /><span>Explained the procedure to the patient and ensured that he or she agreed to treatment.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm mt-1 cl-item" /><span>Compared the label of the medication with the MAR twice; completed a third check at the patient's bedside; checked expiration date; followed the Six Rights of Medication Administration.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm mt-1 cl-item" /><span>Completed the appropriate patient assessment for the medication being administered.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm mt-1 cl-item" /><span>Performed hand hygiene and donned gloves. Donned appropriate PPE based on isolation precautions or risk of exposure to bodily fluids.</span></li>
+					</ul>
+
+					<h3 class="font-semibold mt-2">Assembly &amp; Setup</h3>
+					<ul class="space-y-1 mb-4">
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm mt-1 cl-item" /><span>Assembled the nebulizer per manufacturer's instructions. When patient would use nebulizer at home, explained and demonstrated assembly and use.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm mt-1 cl-item" /><span>Added the prescribed medication to the nebulizer cup; added diluent if needed.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm mt-1 cl-item" /><span>Attached and secured the top of the nebulizer cup.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm mt-1 cl-item" /><span>Ensured the mouthpiece or facemask was connected.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm mt-1 cl-item" /><span>Helped the patient to an upright position, when possible.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm mt-1 cl-item" /><span>Turned on the airflow and ensured that a mist had formed.</span></li>
+					</ul>
+
+					<h3 class="font-semibold mt-2">Administration</h3>
+					<ul class="space-y-1 mb-4">
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm mt-1 cl-item" /><span>Had patient hold mouthpiece between lips using gentle pressure. Used face mask for infants, children, fatigued adults, or those unable to follow instructions. Used special adapters for tracheostomy patients.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm mt-1 cl-item" /><span>Had patient slowly take a deep breath slightly greater than normal, pause at end-inspiration, then exhale passively; repeated until drug was completely nebulized. For dyspneic patients, encouraged slow breathing with normal tidal volume and occasional deep breaths.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm mt-1 cl-item" /><span>Tapped the nebulizer cup occasionally during treatment and toward the end of treatment.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm mt-1 cl-item" /><span>Monitored the patient's pulse as indicated during the procedure.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm mt-1 cl-item" /><span>When medication was completely nebulized, turned off the machine.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm mt-1 cl-item" /><span>If steroids were nebulized, instructed patient to rinse mouth and gargle with warm water after treatment.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm mt-1 cl-item" /><span>Reassessed the patient after treatment and compared findings with preassessment information.</span></li>
+					</ul>
+
+					<h3 class="font-semibold mt-2">Cleanup &amp; Completion</h3>
+					<ul class="space-y-1 mb-4">
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm mt-1 cl-item" /><span>Disassembled all parts of the nebulizer; shook cup to remove remaining solution; rinsed each part in sterile water; shook off excess water; allowed parts to air-dry completely.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm mt-1 cl-item" /><span>Stored the completely dry nebulizer cup and tubing in a clean bag until next use.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm mt-1 cl-item" /><span>Discarded all used supplies. Removed and disposed of gloves and performed hand hygiene.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm mt-1 cl-item" /><span>Provided patient teaching using the Teach Back method.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm mt-1 cl-item" /><span>Helped the patient into a comfortable position, and placed toiletries and personal items within reach.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm mt-1 cl-item" /><span>Placed the call light within easy reach and made sure the patient knew how to use it to summon assistance.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm mt-1 cl-item" /><span>Raised the appropriate number of side rails and lowered the bed to the lowest position.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm mt-1 cl-item" /><span>Documented care, patient teaching, and patient's tolerance to the therapy.</span></li>
+					</ul>
 				</div>
 			</section>
 			<SkillResourceModal />
 		</main>
 	</body>
+	<script>
+		function updateProgress() {
+			const items = document.querySelectorAll('.cl-item') as NodeListOf<HTMLInputElement>;
+			const checked = Array.from(items).filter(i => i.checked).length;
+			const bar = document.getElementById('checklist-bar') as HTMLProgressElement;
+			const count = document.getElementById('checklist-count');
+			if (bar) bar.value = checked;
+			if (count) count.textContent = String(checked);
+		}
+		function resetChecklist() {
+			const items = document.querySelectorAll('.cl-item') as NodeListOf<HTMLInputElement>;
+			items.forEach(i => { i.checked = false; });
+			updateProgress();
+		}
+		document.querySelectorAll('.cl-item').forEach(el => {
+			el.addEventListener('change', updateProgress);
+		});
+		(window as any).resetChecklist = resetChecklist;
+	</script>
 </html>

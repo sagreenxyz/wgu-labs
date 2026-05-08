@@ -25,9 +25,51 @@ import SkillResourceModal from "../../../components/SkillResourceModal.astro";
 			<section class="hero bg-base-100 rounded-box shadow-xl">
 				<div class="hero-content w-full flex-col items-start gap-4">
 					<h1 class="text-4xl font-bold">Adding Items to a Sterile Field</h1>
-					<a href="https://connect.elsevierperformancemanager.com/#/content/skills/13651/videos" class="btn btn-primary resource-link">
-						Watch Video
-					</a>
+					<div class="flex flex-wrap gap-2">
+						<a href="https://connect.elsevierperformancemanager.com/#/content/skills/13651/videos" class="btn btn-primary resource-link">
+							Watch Video
+						</a>
+						<a href="https://lrps.wgu.edu/provision/340282866" target="_blank" rel="noopener noreferrer" class="btn btn-secondary resource-link">
+							Open LRPS
+						</a>
+					</div>
+				</div>
+			</section>
+
+			<section class="card bg-base-100 shadow-xl mt-6">
+				<div class="card-body">
+					<h2 class="text-2xl font-bold">Summary</h2>
+					<ul class="list-disc list-outside ml-4 space-y-1 text-sm leading-7 mb-4">
+						<li>Set up the sterile field first per the "Establishing and Maintaining a Sterile Field" skill.</li>
+						<li>Open each item according to package directions, holding the outer wrapper in the nondominant hand.</li>
+						<li>Peel the wrapper down over the nondominant hand and place the sterile item onto the field at an angle.</li>
+						<li>Never reach across the sterile field or flip/toss objects onto it.</li>
+						<li>The one-inch border around the edge of the field is not considered sterile.</li>
+						<li>Discard each outer wrapper after placing the item; repeat for all additional sterile items.</li>
+					</ul>
+
+					<figure class="my-4 flex flex-col">
+						<img src={`${import.meta.env.BASE_URL}/skills/images/sterile-wrapper-covers-dominant-hand-when-opening.png`} alt="Sterile wrapper covering the hand grasping the package when opening" class="rounded-box shadow-md max-w-md w-full" />
+						<figcaption class="text-sm text-base-content/60 mt-2">The sterile wrapping covers the hand that is grasping the package.</figcaption>
+					</figure>
+
+					<figure class="my-4 flex flex-col">
+						<img src={`${import.meta.env.BASE_URL}/skills/images/adding-item-to-sterile-field.png`} alt="Adding a sterile item to a sterile field" class="rounded-box shadow-md max-w-md w-full" />
+						<figcaption class="text-sm text-base-content/60 mt-2">Place the sterile item onto the field at an angle without letting the wrapper contaminate the field.</figcaption>
+					</figure>
+
+					<figure class="my-4 flex flex-col">
+						<img src={`${import.meta.env.BASE_URL}/skills/images/one-inch-unsterile-margin-of-sterile-field.png`} alt="Diagram showing the one-inch unsterile margin around the edge of a sterile field" class="rounded-box shadow-md max-w-md w-full" />
+						<figcaption class="text-sm text-base-content/60 mt-2">The one-inch border around the sterile field is not considered sterile.</figcaption>
+					</figure>
+
+					<h2 class="text-2xl font-bold">Transcript</h2>
+					<div class="space-y-3 text-sm leading-7">
+						<p>Begin by setting up your sterile work surface as shown in the Video Skill, "Establishing and Maintaining a Sterile Field." When your sterile field has been prepared and you're ready to add a sterile item to it, open the item according to the package directions.</p>
+						<p>Be sure to hold the outer wrapper of the package in your nondominant hand. Carefully peel the wrapper down over your nondominant hand. Place the sterile item onto the field at an angle, taking care not to let the wrapper fall down and contaminate the field.</p>
+						<p>Remember, don't reach across the sterile field, and don't flip or toss objects onto it. Keep in mind that a one-inch border around the edge of the field is not considered sterile.</p>
+						<p>Discard the outer wrapper of each sterile item. Repeat this process to add other sterile items to the field as needed.</p>
+					</div>
 				</div>
 			</section>
 			<SkillResourceModal />

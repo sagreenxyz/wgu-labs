@@ -78,6 +78,17 @@ const allSkills = [
 		.filter(([title]) => !videoTasks.some((task) => task.title === title))
 		.map(([title, resources]) => ({ title, videoUrl: "", resources })),
 ].sort((a, b) => a.title.localeCompare(b.title));
+
+const completedSkills = new Set([
+	"Adding Items to a Sterile Field",
+	"Administering Intramuscular Injections",
+	"Administering Nebulized Medications",
+	"Assessing Apical Pulse",
+	"Assessing Apical-Radial Pulse",
+	"Assisting With a Bedpan",
+	"Using Personal Protective Equipment",
+	"Using a Prepackaged Sterile Kit",
+]);
 ---
 
 <html lang="en">
@@ -101,27 +112,59 @@ const allSkills = [
 			<section class="hero bg-base-100 rounded-box shadow-xl mb-8">
 				<div class="hero-content w-full flex-col items-start gap-4">
 					<h1 class="text-4xl font-bold">Skills Library</h1>
-					<p class="text-lg opacity-80">{allSkills.length} skills to master</p>
+					<p class="text-lg opacity-80">{allSkills.length} skills &mdash; {completedSkills.size} complete, {allSkills.length - completedSkills.size} remaining</p>
 				</div>
 			</section>
 
-			<section class="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-				{allSkills.map((skill) => {
-					const slug = titleToSlug(skill.title);
-					return (
-						<a href={`${import.meta.env.BASE_URL}/skills/${slug}`} class="card bg-base-100 shadow-md hover:shadow-xl transition-shadow border border-base-300">
-							<div class="card-body">
-								<h2 class="card-title text-lg line-clamp-2">{skill.title}</h2>
-								<div class="card-actions justify-end flex-wrap gap-2">
-									{skill.resources.map((resource) => (
-										<div class="badge badge-outline">{resource}</div>
-									))}
-								</div>
-							</div>
-						</a>
-					);
-				})}
-			</section>
+			<div class="tabs tabs-border tabs-lg mb-6">
+				<input type="radio" name="skills_tabs" class="tab" aria-label={`Incomplete (${allSkills.length - completedSkills.size})`} checked />
+				<div class="tab-content pt-6">
+					<section class="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+						{allSkills.filter(skill => !completedSkills.has(skill.title)).map((skill) => {
+							const slug = titleToSlug(skill.title);
+							return (
+								<a href={`${import.meta.env.BASE_URL}/skills/${slug}`} class="card bg-base-100 shadow-md hover:shadow-xl transition-shadow border border-base-300">
+									<div class="card-body">
+										<div class="card-actions justify-end">
+											<div class="badge badge-warning">Incomplete</div>
+										</div>
+										<h2 class="card-title text-lg line-clamp-2">{skill.title}</h2>
+										<div class="card-actions justify-end flex-wrap gap-2">
+											{skill.resources.map((resource) => (
+												<div class="badge badge-outline">{resource}</div>
+											))}
+										</div>
+									</div>
+								</a>
+							);
+						})}
+					</section>
+				</div>
+
+				<input type="radio" name="skills_tabs" class="tab" aria-label={`Complete (${completedSkills.size})`} />
+				<div class="tab-content pt-6">
+					<section class="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+						{allSkills.filter(skill => completedSkills.has(skill.title)).map((skill) => {
+							const slug = titleToSlug(skill.title);
+							return (
+								<a href={`${import.meta.env.BASE_URL}/skills/${slug}`} class="card bg-base-100 shadow-md hover:shadow-xl transition-shadow border border-success/30">
+									<div class="card-body">
+										<div class="card-actions justify-end">
+											<div class="badge badge-success">Complete</div>
+										</div>
+										<h2 class="card-title text-lg line-clamp-2">{skill.title}</h2>
+										<div class="card-actions justify-end flex-wrap gap-2">
+											{skill.resources.map((resource) => (
+												<div class="badge badge-outline">{resource}</div>
+											))}
+										</div>
+									</div>
+								</a>
+							);
+						})}
+					</section>
+				</div>
+			</div>
 		</main>
 	</body>
 </html>

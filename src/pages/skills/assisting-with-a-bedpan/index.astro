@@ -32,10 +32,178 @@ import SkillResourceModal from "../../../components/SkillResourceModal.astro";
 						<a href={`${import.meta.env.BASE_URL}/skills/checklists/Assisting with a Bedpan - Checklist.pdf`} class="btn btn-outline resource-link">
 							Checklist
 						</a>
+						<a href="https://lrps.wgu.edu/provision/340313104" target="_blank" rel="noopener noreferrer" class="btn btn-secondary resource-link">
+							Open LRPS
+						</a>
+					</div>
+				</div>
+			</section>
+
+			<section class="card bg-base-100 shadow-xl mt-6">
+				<div class="card-body">
+					<h2 class="text-2xl font-bold">Checklist</h2>
+					<div class="flex items-center gap-4 mb-2">
+						<progress id="checklist-bar" class="progress progress-success w-full" value="0" max="31"></progress>
+						<span class="text-sm font-semibold whitespace-nowrap"><span id="checklist-count">0</span> / <span id="checklist-total">31</span></span>
+					</div>
+					<button onclick="resetChecklist()" class="btn btn-sm btn-outline mb-4">Reset</button>
+
+					<h3 class="font-semibold mt-2">Preparation (all patients)</h3>
+					<ul class="space-y-1 mb-6">
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm mt-1 cl-item cl-common" /><span>Performed hand hygiene.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm mt-1 cl-item cl-common" /><span>Introduced self to patient and family.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm mt-1 cl-item cl-common" /><span>Provided for patient privacy.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm mt-1 cl-item cl-common" /><span>Identified patient using two identifiers.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm mt-1 cl-item cl-common" /><span>Explained the procedure to the patient and ensured that he or she agreed to treatment.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm mt-1 cl-item cl-common" /><span>Applied gloves, gathered supplies.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm mt-1 cl-item cl-common" /><span>Placed bedpan under running warm water, dried bedpan, did not allow to become too hot.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm mt-1 cl-item cl-common" /><span>Ensured top side rails of bed are in up position, raised bed to comfortable working height.</span></li>
+					</ul>
+
+					<div class="divider text-sm font-semibold">Choose patient mobility path</div>
+
+					<div class="tabs tabs-border tabs-lg mb-6">
+						<input type="radio" name="bedpan_tabs" class="tab" aria-label="Mobile Patient" checked />
+						<div class="tab-content pt-4">
+							<h3 class="font-semibold mb-2">Placing Bedpan</h3>
+							<ul class="space-y-1 mb-4">
+								<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm mt-1 cl-item cl-mobile" /><span>Assisted patient into appropriate position; observed for drains, dressings, IV fluids, and traction; obtained additional personnel if needed.</span></li>
+								<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm mt-1 cl-item cl-mobile" /><span>Moved top bed linens out of the way, took care not to expose patient.</span></li>
+								<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm mt-1 cl-item cl-mobile" /><span>Instructed patient on how to flex knees and raise hips.</span></li>
+								<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm mt-1 cl-item cl-mobile" /><span>Placed assisting hand (palm up) under patient's sacrum to assist lifting; used other hand to slip bedpan under patient; did not use force.</span></li>
+								<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm mt-1 cl-item cl-mobile" /><span>Positioned fracture pan appropriately if used.</span></li>
+								<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm mt-1 cl-item cl-mobile" /><span>Asked patient to use overhead trapeze frame if present.</span></li>
+								<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm mt-1 cl-item cl-mobile" /><span>Ensured toilet paper is within reach; instructed patient on how to properly wipe.</span></li>
+								<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm mt-1 cl-item cl-mobile" /><span>Ensured bed is in lowest position, raised upper side rail.</span></li>
+								<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm mt-1 cl-item cl-mobile" /><span>Ensured patient knows where call light is located; instructed patient to use it when finished.</span></li>
+								<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm mt-1 cl-item cl-mobile" /><span>Allowed patient to be alone, monitored patient status, responded promptly to call light.</span></li>
+								<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm mt-1 cl-item cl-mobile" /><span>When patient finished: performed hand hygiene, applied clean gloves.</span></li>
+							</ul>
+							<h3 class="font-semibold mb-2">Removing Bedpan</h3>
+							<ul class="space-y-1 mb-4">
+								<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm mt-1 cl-item cl-mobile" /><span>Placed bedside chair within reach, draped with waterproof pad.</span></li>
+								<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm mt-1 cl-item cl-mobile" /><span>Moved top bed linens out of the way, exposed patient as little as possible.</span></li>
+								<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm mt-1 cl-item cl-mobile" /><span>Determined if patient was able to cleanse perineal area; assisted with toilet tissue or disposable washcloths if needed.</span></li>
+								<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm mt-1 cl-item cl-mobile" /><span>Deposited soiled tissue in appropriate container.</span></li>
+								<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm mt-1 cl-item cl-mobile" /><span>Asked patient to flex knees and lift buttocks; supported bedpan to prevent spillage; removed bedpan and covered with towel.</span></li>
+								<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm mt-1 cl-item cl-mobile" /><span>Changed soiled linens; removed and disposed of gloves; returned patient to comfortable position.</span></li>
+								<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm mt-1 cl-item cl-mobile" /><span>Placed bed in lowest position; allowed patient to perform hand hygiene; ensured access to call light, water, and personal items; performed hand hygiene.</span></li>
+							</ul>
+						</div>
+
+						<input type="radio" name="bedpan_tabs" class="tab" aria-label="Immobile Patient" />
+						<div class="tab-content pt-4">
+							<h3 class="font-semibold mb-2">Placing Bedpan</h3>
+							<ul class="space-y-1 mb-4">
+								<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm mt-1 cl-item cl-immobile" /><span>Applied clean gloves; raised bed to comfortable working height; positioned bed appropriately.</span></li>
+								<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm mt-1 cl-item cl-immobile" /><span>Moved top linens as necessary to turn patient; minimized exposure.</span></li>
+								<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm mt-1 cl-item cl-immobile" /><span>Lowered side rail; helped patient roll onto side toward opposite side rail; placed bedpan on patient's buttocks and pushed into mattress; ensured proper orientation of bedpan.</span></li>
+								<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm mt-1 cl-item cl-immobile" /><span>Rolled patient properly onto the bedpan; did not force bedpan under patient.</span></li>
+								<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm mt-1 cl-item cl-immobile" /><span>Placed pillow or towel under patient's lumbar.</span></li>
+								<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm mt-1 cl-item cl-immobile" /><span>Covered patient for warmth; raised bed to appropriate sitting level.</span></li>
+								<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm mt-1 cl-item cl-immobile" /><span>Asked patient to bend knees if appropriate.</span></li>
+								<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm mt-1 cl-item cl-immobile" /><span>Allowed patient to be alone, monitored status, responded to call light.</span></li>
+								<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm mt-1 cl-item cl-immobile" /><span>Performed hand hygiene, applied clean gloves.</span></li>
+							</ul>
+							<h3 class="font-semibold mb-2">Removing Bedpan</h3>
+							<ul class="space-y-1 mb-4">
+								<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm mt-1 cl-item cl-immobile" /><span>Moved top bed linens out of the way, exposed patient as little as possible.</span></li>
+								<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm mt-1 cl-item cl-immobile" /><span>Determined if patient was able to wipe own perineal area; assisted if necessary.</span></li>
+								<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm mt-1 cl-item cl-immobile" /><span>Lowered head of bed; helped patient roll to side toward opposite side rail; held bedpan flat and steady; covered bedpan with towel; cleansed patient's perineal area appropriately if necessary.</span></li>
+								<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm mt-1 cl-item cl-immobile" /><span>Discarded soiled tissue appropriately; allowed patient to perform hand hygiene after cleansing perineum.</span></li>
+							</ul>
+						</div>
+					</div>
+
+					<div class="divider"></div>
+
+					<h3 class="font-semibold mt-2">Follow-up &amp; Documentation (all patients)</h3>
+					<ul class="space-y-1 mb-4">
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm mt-1 cl-item cl-common" /><span>Noted characteristics of patient's stool and urine.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm mt-1 cl-item cl-common" /><span>Wore gloves when emptying contents of bedpan; cleaned and stored bedpan according to agency policy.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm mt-1 cl-item cl-common" /><span>Set aside used equipment in appropriate location; disposed of soiled linens appropriately.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm mt-1 cl-item cl-common" /><span>Removed and discarded gloves; performed hand hygiene.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm mt-1 cl-item cl-common" /><span>Documented amount, color, and characteristics of stool and patient's tolerance of getting on and off the bedpan.</span></li>
+					</ul>
+				</div>
+			</section>
+
+			<section class="card bg-base-100 shadow-xl mt-6">
+				<div class="card-body">
+					<h2 class="text-2xl font-bold">Summary</h2>
+					<ul class="list-disc list-outside ml-4 space-y-1 text-sm leading-7 mb-4">
+						<li>Perform hand hygiene, introduce self, provide privacy, and identify patient using two identifiers.</li>
+						<li>Apply gloves; adjust bed to working height and patient to supine with head of bed at 30–60 degrees.</li>
+						<li>For mobile patients: ask to bend knees and lift hips, then slide bedpan under with open rim toward the foot of the bed.</li>
+						<li>For immobile patients: roll patient onto side, place pan firmly against buttocks, then roll patient back onto pan.</li>
+						<li>Use fracture pan the same way — deep open end toward foot of bed.</li>
+						<li>Provide toilet tissue; instruct patient to wipe front to back to prevent UTI.</li>
+						<li>Lower bed, raise side rails, and leave call light within reach; remove gloves and perform hand hygiene.</li>
+						<li>When finished: assist with perineal care if needed, remove pan while supporting to prevent spillage.</li>
+						<li>Empty bedpan into toilet, rinse with spray attachment, and disinfect per agency policy.</li>
+						<li>Document stool/urine characteristics, any specimens collected, and patient tolerance.</li>
+					</ul>
+
+					<h2 class="text-2xl font-bold">Transcript</h2>
+					<div class="space-y-3 text-sm leading-7">
+						<p>A patient who's unable to get out of bed must use a bedpan for bowel elimination. To help your patient use a bedpan, begin by performing hand hygiene and introducing yourself. Provide privacy by closing the door or pulling the bedside curtain. Then identify the patient using two identifiers. Apply gloves and gather your supplies.</p>
+						<p>If the side rail of the bed across from you is down, raise it, and adjust the bed to a comfortable working height. Assist the patient into the supine position. Lower the head of the bed flat unless contraindicated. Look for any drains, dressings, IV infusions, or traction. These devices might make it difficult for the patient to help with the procedure, and you'll need to get some assistance.</p>
+						<p>Raise the head of the bed to a 30 to 60-degree angle. Move the bed linens out of the way, but avoid unnecessarily exposing the patient. Ask her to bend her knees and raise her hips. If your patient needs assistance, slide the hand closest to the patient's head, palm up, under the patient's sacrum, and help her lift. As your patient lifts her hips, use your other hand to slip the bedpan under her, with the open rim facing the foot of the bed.</p>
+						<p>If you can't get the pan under the patient's hips, don't force it. If you're using a fracture pan, slip it under the patient when she raises her hips. Make sure the lower end of the bedpan — the deep, open end — is facing the foot of the bed. If the bed is equipped with an overhead trapeze, show the patient how to use it to help raise her hips.</p>
+						<p>Make sure she can easily reach the toilet tissue, and instruct her to wipe from front to back to prevent the transmission of bacteria to the urinary tract. Place the bed in the lowest position, with the side rails up. Instruct the patient to use the call light when she is finished. Then remove and dispose of your gloves, and perform hand hygiene. Allow the patient privacy, and monitor her status.</p>
+						<p>Respond promptly when you see the call light. Perform hand hygiene and apply clean gloves. Place the bedside chair within easy reach, draped with a waterproof pad. Move the top linen aside, exposing the patient as little as possible. If the patient is unable to perform her perineal care, assist her with this now. If the patient has cleaned her own perineal area, make sure all contaminated tissues have been discarded in the bedpan.</p>
+						<p>If the patient is mobile, have her flex her knees, shift her weight onto her feet and upper torso, and then lift her buttocks up from the bedpan. At the same time, using the hand that's farther from the patient, place your hand on the side of the bedpan to support it and prevent spillage. Slide your other hand under the patient's sacrum to help lift her. As you do so, remove the bedpan, place it on the draped bedside chair, and place a towel over it. Change the bed linen if it's soiled. Then remove your gloves and return the bed to its lowest position. Allow the patient to perform hand hygiene. Make sure the patient is comfortable and has easy access to the call light. Place drinking water and personal items within her reach, too.</p>
+						<p>Additional nursing care is required for patients who are immobile or have restricted mobility who need to use the bedpan. Raise the bed to a working height, and lower the head of the bed flat unless contraindicated. Move the top linen so that you can turn him while minimizing his exposure. Lower the side rail, and assist the patient in rolling onto his side, with his back toward you.</p>
+						<p>With the open rim of the bedpan facing the foot of the bed, place the pan firmly against the patient's buttocks and push it down toward the mattress. Keep the bedpan centered under the patient with one hand, and place your other hand around his far hip. Then ask him to roll back onto the bedpan. Do not force the pan under him. Offer a small pillow or towel behind the lumbar curve of his back to reduce the strain as he sits on the bedpan. Cover the patient for warmth. Raise the head of the bed to 30 degrees, or to a sitting position that's comfortable, and raise the knee gatch, or have the patient bend his knees, unless contraindicated. Provide privacy as the patient uses the bedpan.</p>
+						<p>Respond promptly when you see the call light. After performing hand hygiene, apply clean gloves. Move the top linen aside, exposing the patient as little as possible. If the patient is unable to perform his perineal care, assist him with this now. Lower the head of the bed, and help the patient roll onto his side, away from you and off the bedpan, as you hold the pan flat and steady. Remove the pan, set it on the draped bedside chair, and place a towel over it. Use several layers of toilet tissue or a disposable washcloth to clean the area for him, moving from the front to back. Discard the tissues or disposable washcloths into the bedpan if no specimen has been ordered and no intake and output measurements are needed. If necessary, place the contaminated tissue or disposable washcloths in the trash receptacle.</p>
+						<p>As part of your follow-up care, note the characteristics of the patient's stool and urine. Collect any specimens ordered. Empty the bedpan into the toilet or receptacle in the utility room. Use the spray attachment on the toilet to rinse the bedpan. Disinfect it according to your agency's policy. Once again, remove your gloves and perform hand hygiene. Document the amount, characteristics, and color of the stool. Also note in the electronic medical record the patient's tolerance to getting on and off the bedpan.</p>
 					</div>
 				</div>
 			</section>
 			<SkillResourceModal />
 		</main>
 	</body>
+	<script>
+		const MOBILE_TOTAL = 31;
+		const IMMOBILE_TOTAL = 26;
+		let activePath: 'mobile' | 'immobile' = 'mobile';
+
+		function getActiveItems(): HTMLInputElement[] {
+			const common = Array.from(document.querySelectorAll('.cl-common')) as HTMLInputElement[];
+			const path = Array.from(document.querySelectorAll(`.cl-${activePath}`)) as HTMLInputElement[];
+			return [...common, ...path];
+		}
+
+		function updateProgress() {
+			const items = getActiveItems();
+			const checked = items.filter(i => i.checked).length;
+			const total = activePath === 'mobile' ? MOBILE_TOTAL : IMMOBILE_TOTAL;
+			const bar = document.getElementById('checklist-bar') as HTMLProgressElement;
+			const count = document.getElementById('checklist-count');
+			const totalEl = document.getElementById('checklist-total');
+			if (bar) { bar.max = total; bar.value = checked; }
+			if (count) count.textContent = String(checked);
+			if (totalEl) totalEl.textContent = String(total);
+		}
+
+		function resetChecklist() {
+			document.querySelectorAll<HTMLInputElement>('.cl-item').forEach(i => { i.checked = false; });
+			updateProgress();
+		}
+
+		document.querySelectorAll('.cl-item').forEach(el => {
+			el.addEventListener('change', updateProgress);
+		});
+
+		// Listen for tab switches
+		document.querySelectorAll<HTMLInputElement>('input[name="bedpan_tabs"]').forEach(radio => {
+			radio.addEventListener('change', () => {
+				activePath = radio.getAttribute('aria-label')?.toLowerCase().includes('immobile') ? 'immobile' : 'mobile';
+				updateProgress();
+			});
+		});
+
+		(window as any).resetChecklist = resetChecklist;
+		updateProgress();
+	</script>
 </html>

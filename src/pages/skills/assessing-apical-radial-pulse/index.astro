@@ -32,10 +32,110 @@ import SkillResourceModal from "../../../components/SkillResourceModal.astro";
 						<a href={`${import.meta.env.BASE_URL}/skills/checklists/Assessing Apical-Radial Pulse - Checklist.pdf`} class="btn btn-outline resource-link">
 							Checklist
 						</a>
+						<a href="https://lrps.wgu.edu/provision/340279949" target="_blank" rel="noopener noreferrer" class="btn btn-secondary resource-link">
+							Open LRPS
+						</a>
+					</div>
+				</div>
+			</section>
+
+			<section class="card bg-base-100 shadow-xl mt-6">
+				<div class="card-body">
+					<h2 class="text-2xl font-bold">Checklist</h2>
+					<div class="flex items-center gap-4 mb-2">
+						<progress id="checklist-bar" class="progress progress-success w-full" value="0" max="23"></progress>
+						<span class="text-sm font-semibold whitespace-nowrap"><span id="checklist-count">0</span> / 23</span>
+					</div>
+					<button onclick="resetChecklist()" class="btn btn-sm btn-outline mb-4">Reset</button>
+
+					<h3 class="font-semibold mt-2">Preparation</h3>
+					<ul class="space-y-1 mb-4">
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm mt-1 cl-item" /><span>Verified the health care provider's orders.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm mt-1 cl-item" /><span>Gathered the necessary equipment and supplies.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm mt-1 cl-item" /><span>Performed hand hygiene.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm mt-1 cl-item" /><span>Introduced self to the patient and family.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm mt-1 cl-item" /><span>Provided for the patient's privacy.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm mt-1 cl-item" /><span>Identified the patient using two patient identifiers.</span></li>
+					</ul>
+
+					<h3 class="font-semibold mt-2">Procedure / Assessment</h3>
+					<ul class="space-y-1 mb-4">
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm mt-1 cl-item" /><span>Checked for factors that suggest a possible pulse deficit. Obtained the help of a second health care provider.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm mt-1 cl-item" /><span>Explained to the patient that two people will be assessing heart function at the same time. Helped the patient into a supine or sitting position, and exposed the sternum and left side of the chest.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm mt-1 cl-item" /><span>Located the apical and radial pulse sites. Had the second health care provider palpate the radial pulse while they auscultated the apical pulse.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm mt-1 cl-item" /><span>Counted the pulse rate simultaneously for a full 60 seconds.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm mt-1 cl-item" /><span>Stopped counting and compared findings.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm mt-1 cl-item" /><span>Subtracted the radial rate from the apical rate.</span></li>
+					</ul>
+
+					<h3 class="font-semibold mt-2">Completion Steps</h3>
+					<ul class="space-y-1 mb-4">
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm mt-1 cl-item" /><span>Helped the patient into a comfortable position.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm mt-1 cl-item" /><span>Discussed findings with the patient as needed.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm mt-1 cl-item" /><span>Performed hand hygiene.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm mt-1 cl-item" /><span>Assessed for other signs and symptoms of decreased cardiac output.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm mt-1 cl-item" /><span>Reported the presence of a pulse deficit and any related symptoms to the nurse in charge or to the health care provider.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm mt-1 cl-item" /><span>Helped the patient into a comfortable position, and placed toiletries and personal items within reach.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm mt-1 cl-item" /><span>Placed the call light within easy reach, and made sure the patient knew how to use it to summon assistance.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm mt-1 cl-item" /><span>Raised the appropriate number of side rails and lowered the bed to the lowest position.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm mt-1 cl-item" /><span>Disposed of used supplies and equipment. Left the patient's room tidy.</span></li>
+					</ul>
+
+					<h3 class="font-semibold mt-2">Documentation</h3>
+					<ul class="space-y-1 mb-4">
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm mt-1 cl-item" /><span>Removed and disposed of gloves. Performed hand hygiene.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm mt-1 cl-item" /><span>Documented and reported the patient's response and expected or unexpected outcomes.</span></li>
+					</ul>
+				</div>
+			</section>
+
+			<section class="card bg-base-100 shadow-xl mt-6">
+				<div class="card-body">
+					<h2 class="text-2xl font-bold">Summary</h2>
+					<ul class="list-disc list-outside ml-4 space-y-1 text-sm leading-7 mb-4">
+						<li>Perform hand hygiene, ensure privacy, introduce self, and verify two identifiers.</li>
+						<li>Screen for pulse-deficit clues: irregular pulse, dyspnea, fatigue, chest pain, orthopnea, palpitations.</li>
+						<li>Use two clinicians: one counts apical, one counts radial.</li>
+						<li>Position patient supine or sitting; expose sternum and left chest.</li>
+						<li>Count both pulses simultaneously for a full 60 seconds on a shared start/stop cue.</li>
+						<li>Compute pulse deficit: apical minus radial.</li>
+						<li>Difference greater than 2 beats per minute indicates pulse deficit.</li>
+						<li>Afterward, assess for decreased cardiac output signs: edema, cyanosis/pallor, dizziness/syncope.</li>
+						<li>Report pulse deficit and associated symptoms to the charge nurse or provider.</li>
+					</ul>
+
+					<h2 class="text-2xl font-bold">Transcript</h2>
+					<div class="space-y-3 text-sm leading-7">
+						<p>After performing hand hygiene and ensuring privacy, introduce yourself to the patient. Then identify him using two identifiers. Before assessing the apical-radial pulse, check for factors that suggest a possible pulse deficit, such as an irregular pulse, dyspnea, fatigue, chest pain, orthopnea, or palpitations.</p>
+						<p>Obtain the help of a second health care provider. Explain to the patient that two people will be assessing his heart function at the same time. Help him into a supine or sitting position, and expose his sternum and the left side of his chest.</p>
+						<p>Now locate the apical and radial pulse sites -- and if you need a refresher, see the video skills, "Assessing Radial Pulse" and "Assessing Apical Pulse." If possible, have the other health care provider palpate the radial pulse while you auscultate the apical pulse.</p>
+						<p>When the person holding the watch says, "Start," both of you will begin counting the pulse simultaneously for a full 60 seconds. When the person holding the watch says, "Stop," stop counting and compare your findings.</p>
+						<p>Then subtract the radial rate from the apical rate. If the difference is more than two beats per minute, a pulse deficit exists, indicating the number of ineffective cardiac contractions per minute.</p>
+						<p>Help the patient into a comfortable position, and discuss your findings with him. As part of your follow-up for a patient with pulse deficit, check for other signs and symptoms of decreased cardiac output, such as edema of dependent body parts, cyanosis or pallor of the skin, and dizziness or syncope.</p>
+						<p>Report pulse deficit and any related symptoms to the nurse in charge or the health care provider.</p>
 					</div>
 				</div>
 			</section>
 			<SkillResourceModal />
 		</main>
 	</body>
+	<script>
+		function updateProgress() {
+			const items = document.querySelectorAll('.cl-item') as NodeListOf<HTMLInputElement>;
+			const checked = Array.from(items).filter(i => i.checked).length;
+			const bar = document.getElementById('checklist-bar') as HTMLProgressElement;
+			const count = document.getElementById('checklist-count');
+			if (bar) bar.value = checked;
+			if (count) count.textContent = String(checked);
+		}
+		function resetChecklist() {
+			const items = document.querySelectorAll('.cl-item') as NodeListOf<HTMLInputElement>;
+			items.forEach(i => { i.checked = false; });
+			updateProgress();
+		}
+		document.querySelectorAll('.cl-item').forEach(el => {
+			el.addEventListener('change', updateProgress);
+		});
+		(window as any).resetChecklist = resetChecklist;
+	</script>
 </html>
