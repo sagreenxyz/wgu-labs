@@ -38,7 +38,158 @@ import SkillResourceModal from "../../../components/SkillResourceModal.astro";
 					</div>
 				</div>
 			</section>
+			<!-- Checklist -->
+			<div class="card bg-base-100 shadow-xl mt-6">
+				<div class="card-body">
+					<h2 class="card-title text-2xl">Checklist</h2>
+					<div class="flex items-center gap-4 mb-4">
+						<progress id="cl-progress" class="progress progress-success flex-1" value="0" max="19"></progress>
+						<span id="cl-count" class="text-sm font-medium">0 / 19</span>
+						<button onclick="resetChecklist()" class="btn btn-sm btn-outline">Reset</button>
+					</div>
+
+					<ul class="space-y-2">
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Verified the health care provider's orders.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Gathered the necessary equipment and supplies.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Performed hand hygiene, and provided for the patient's privacy.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Introduced self to the patient and family.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Identified the patient using two identifiers. Compared these identifiers with the information on the patient's identification bracelet.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Attached the oxygen delivery device to the oxygen tubing, and attached the tubing to the humidified oxygen source adjusted to the prescribed flow rate.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>For a patient with a nasal cannula, used a flow rate of 1 to 6 L/min.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>For a patient with a reservoir nasal cannula, set the flow rate at 1 to 15 L/min, as prescribed.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>For a patient who wore a simple face mask, used a flow rate of 5 to 8 L/min.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>For a Venturi mask, set the ordered flow rate between 4 and 12 L/min. Turned the barrel on the mask to the correct L/min or % ordered.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>When using a partial nonrebreathing mask, kept the flow rate high enough to prevent the bag from collapsing.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>For a patient with a nonrebreathing mask, used a flow rate of 15 L/min.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>For a patient with a face tent, set the flow rate at 8 to 12 L/min, as prescribed.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Checked the cannula/mask every 8 hours. Kept the humidification container filled at all times.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Helped the patient into a comfortable position, and placed toiletries and personal items within reach.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Placed the call light within easy reach, and made sure the patient knew how to use it to summon assistance.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Raised the appropriate number of side rails and lowered the bed to the lowest position.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Removed and disposed of gloves, if used. Performed hand hygiene.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Documented and reported the patient's response and expected or unexpected outcomes.</span></li>
+					</ul>
+				</div>
+			</div>
+
+			<!-- Summary -->
+			<div class="card bg-base-100 shadow-xl mt-6">
+				<div class="card-body">
+					<h2 class="card-title text-2xl">Summary</h2>
+					<ul class="list-disc list-inside space-y-1">
+						<li>Review provider orders for oxygen delivery method, flow rate, and duration before setup</li>
+						<li>Perform hand hygiene, provide privacy, identify the patient with two identifiers, and assess respirations, pulse, and oxygen saturation</li>
+						<li>Use humidified oxygen when ordered flow is greater than 4 L/min, then connect the prescribed delivery device</li>
+						<li>Adjust flow using the regulator float ball so it aligns exactly with the ordered liters-per-minute mark</li>
+						<li>Nasal cannula: 1 to 6 L/min (approximately FiO2 24% to 44%)</li>
+						<li>Reservoir nasal cannula (Oxymizer): 1 to 15 L/min (approximately FiO2 24% to 60%)</li>
+						<li>Venturi mask: 4 to 12 L/min; select the correct adapter or barrel setting to deliver preset FiO2 (24% to 60%)</li>
+						<li>Partial non-rebreather: maintain enough flow to keep the reservoir bag from collapsing (often 10 to 12 L/min, FiO2 about 80% to 90%)</li>
+						<li>Nonrebreather mask: typically 15 L/min (FiO2 about 60% to 90%); face tent: 8 to 12 L/min as prescribed</li>
+						<li>Reassess every 8 hours, keep humidification filled, monitor oximetry/ABGs, report out-of-range findings, and perform hand hygiene after care</li>
+					</ul>
+				</div>
+			</div>
+
+			<!-- Oxygen Device Reference Table -->
+			<div class="card bg-base-100 shadow-xl mt-6">
+				<div class="card-body">
+					<h2 class="card-title text-2xl">Oxygen Delivery Device Reference</h2>
+					<div class="overflow-x-auto">
+						<table class="table table-zebra">
+							<thead>
+								<tr>
+									<th>Delivery Device</th>
+									<th>Flow Rate (L/min)</th>
+									<th>FiO2</th>
+									<th>Notes</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>Nasal Cannula</td>
+									<td>1 to 6</td>
+									<td>24% to 44%</td>
+									<td>Common low-flow device for stable oxygen needs.</td>
+								</tr>
+								<tr>
+									<td>Reservoir Nasal Cannula (Oxymizer)</td>
+									<td>1 to 15</td>
+									<td>24% to 60%</td>
+									<td>Can deliver higher oxygen concentration than a standard nasal cannula.</td>
+								</tr>
+								<tr>
+									<td>Simple Face Mask</td>
+									<td>5 to 8</td>
+									<td>Not specified in provided transcript</td>
+									<td>Maintain minimum flow to avoid carbon dioxide rebreathing.</td>
+								</tr>
+								<tr>
+									<td>Venturi Mask</td>
+									<td>4 to 12</td>
+									<td>24% to 60%</td>
+									<td>Use correct adapter or barrel setting to deliver a precise preset FiO2.</td>
+								</tr>
+								<tr>
+									<td>Partial Non-Rebreathing Mask</td>
+									<td>High enough to prevent bag collapse (often 10 to 12)</td>
+									<td>80% to 90% (at 10 to 12 L/min example)</td>
+									<td>Reservoir bag should remain partially inflated during breathing cycle.</td>
+								</tr>
+								<tr>
+									<td>Nonrebreathing Mask</td>
+									<td>15</td>
+									<td>60% to 90%</td>
+									<td>High-flow support for significant oxygen requirements.</td>
+								</tr>
+								<tr>
+									<td>Face Tent</td>
+									<td>8 to 12</td>
+									<td>28% to 100% (highly variable)</td>
+									<td>Useful when a tight-fitting mask is not tolerated.</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+
+			<!-- Transcript -->
+			<div class="card bg-base-100 shadow-xl mt-6">
+				<div class="card-body">
+					<h2 class="card-title text-2xl">Transcript</h2>
+					<p>Before setting an oxygen flow rate, review the health care provider's orders to confirm the prescribed oxygen delivery method, flow rate, and duration of therapy. After performing hand hygiene and ensuring privacy, introduce yourself to the patient. Then identify her using two identifiers. Assess the patient's respiratory system and obtain her oxygen saturation and pulse.</p>
+					<p>If the ordered flow rate exceeds 4 liters per minute, attach the tubing to a humidified source of oxygen. Then attach the oxygen delivery device, such as a nasal cannula or mask. Turn the oxygen on, and use the float ball on the regulator to adjust the flow to the prescribed rate. Stop when the ball is even with the number of liters-per-minute ordered.</p>
+					<p>A patient with a nasal cannula will require a flow of 1 to 6 liters per minute. This rate delivers a fraction of inspired oxygen, or FiO2, of 24 to 44 percent. A patient with a reservoir nasal cannula, or Oxymizer, will require a flow of 1 to 15 liters per minute, which supplies an FiO2 of 24 to 60 percent.</p>
+					<p>For a Venturi mask, plan to set the ordered flow rate between 4 and 12 liters per minute. To deliver a preset FiO2 of 24 to 60 percent, either use the correct adapter or turn the barrel on the mask. The flow rate on a partial non-rebreathing mask must be kept high enough to prevent the bag from collapsing. Ten to 12 liters per minute, for example, delivers an FiO2 of 80 to 90 percent. A nonrebreathing mask requires a flow rate of 15 liters per minute, supplying an FiO2 of 60 to 90 percent.</p>
+					<p>If your patient has a face tent, set the flow rate at 8 to 12 liters per minute, as prescribed. This rate delivers a highly variable FiO2, ranging from 28 to 100 percent. Check the cannula or mask every 8 hours and keep the humidification container filled at all times.</p>
+					<p>As part of your follow-up care, monitor the patient's pulse oximetry and arterial blood gas levels, if needed. If either is out of range, notify the health care provider; a flow rate adjustment may be in order. When you're finished, perform hand hygiene.</p>
+				</div>
+			</div>
+
 			<SkillResourceModal />
 		</main>
 	</body>
 </html>
+
+<script>
+	function updateProgress() {
+		const items = document.querySelectorAll('.cl-item');
+		const checked = document.querySelectorAll('.cl-item:checked').length;
+		const progress = document.getElementById('cl-progress') as HTMLProgressElement;
+		const count = document.getElementById('cl-count');
+		if (progress) progress.value = checked;
+		if (count) count.textContent = `${checked} / ${items.length}`;
+	}
+
+	function resetChecklist() {
+		document.querySelectorAll('.cl-item').forEach((el) => {
+			(el as HTMLInputElement).checked = false;
+		});
+		updateProgress();
+	}
+
+	document.querySelectorAll('.cl-item').forEach((el) => {
+		el.addEventListener('change', updateProgress);
+	});
+</script>

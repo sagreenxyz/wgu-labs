@@ -30,7 +30,112 @@ import SkillResourceModal from "../../../components/SkillResourceModal.astro";
 					</a>
 				</div>
 			</section>
+
+			<!-- Checklist -->
+			<div class="card bg-base-100 shadow-xl mt-6">
+				<div class="card-body">
+					<h2 class="card-title text-2xl">Checklist</h2>
+					<div class="flex items-center gap-4 mb-4">
+						<progress id="cl-progress" class="progress progress-success flex-1" value="0" max="42"></progress>
+						<span id="cl-count" class="text-sm font-medium">0 / 42</span>
+						<button onclick="resetChecklist()" class="btn btn-sm btn-outline">Reset</button>
+					</div>
+
+					<h3 class="font-semibold mt-2">Preparation</h3>
+					<ul class="space-y-2">
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Verified the health care provider's orders, checked the patient's baseline weight, and reviewed lab results such as blood glucose and electrolyte values.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Gathered the necessary equipment and supplies.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Performed hand hygiene and provided for the patient's privacy.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Introduced yourself to the patient and family, if present.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Identified the patient using two identifiers according to agency policy and compared them with the identification bracelet.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Asked about food allergies, explained the procedure, and ensured the patient agreed to treatment.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Applied clean gloves.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Auscultated bowel sounds, assessed the abdomen, and positioned the patient in high-Fowler's (or reverse Trendelenburg if supine).</span></li>
+					</ul>
+
+					<h3 class="font-semibold mt-4">Formula Setup</h3>
+					<ul class="space-y-2">
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Obtained the prescribed formula, confirmed the enteral nutrition label, checked expiration date, and checked container integrity.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Administered formula at room temperature.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Used aseptic technique when handling the formula, administration set, and all feeding system connections.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Shook formula well and cleaned the top of any canned formula with an alcohol swab before opening.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Prepared the system correctly: poured/opened formula as appropriate, limited open-bag volume to 4 to 8 hours, primed tubing, used correct tubing, and maintained aseptic technique while connecting and hanging.</span></li>
+					</ul>
+
+					<h3 class="font-semibold mt-4">Tube Verification and GRV</h3>
+					<ul class="space-y-2">
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Verified tube placement per policy and re-verified every 4 hours using approved methods (gastric aspirate observation, pH testing, or capnography).</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Checked gastric residual volume (GRV) before each intermittent feeding and every 4 hours during continuous feedings.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Drew 30 mL of air into a 60 mL enteral syringe, attached it, and injected air into the feeding tube.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Aspirated gastric contents slowly and repositioned the patient if needed to facilitate withdrawal.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Noted the aspirate amount and monitored for changes in aspirate volume.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Returned aspirated contents to the stomach unless volume exceeded 500 mL or organization/provider threshold.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Flushed the tube with 30 mL purified or sterile water after aspiration.</span></li>
+					</ul>
+
+					<h3 class="font-semibold mt-4">Safety Labeling and Connections</h3>
+					<ul class="space-y-2">
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Used enteral devices/connectors compliant with ISO 80369-3 (ENFit).</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Traced the tube to its point of origin before attaching a feeding administration set.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Labeled the administration set "Tube feeding only" or used manufacturer-provided labeling.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Checked vital signs immediately after making any connection per organizational practice.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Labeled the feeding bag with formula type, strength, amount, date, time, and initials.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Labeled commercial enteral containers "Not for IV Use" to reduce risk of misconnection.</span></li>
+					</ul>
+
+					<h3 class="font-semibold mt-4">Pump Feeding Administration</h3>
+					<ul class="space-y-2">
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Pinched or clamped the feeding tube, removed the cap, and attached tubing without forcing connections or using workarounds.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Checked vital signs immediately after making the connection per organizational practice.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Set infusion rate by roller clamp or feeding pump and allowed bag to empty gradually over 30 to 45 minutes.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Gradually advanced the tube feeding rate as ordered.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Capped or clamped intermittent feeding tube when not in use.</span></li>
+					</ul>
+
+					<h3 class="font-semibold mt-4">Flushing and Water Use</h3>
+					<ul class="space-y-2">
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Used purified or sterile water for flushing and medication preparation, and sterile water for powdered formula reconstitution and immunocompromised patients.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Following medication or formula administration, flushed with at least 15 mL purified or sterile water.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Flushed with 30 mL water after GRV measurements.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Flushed with at least 30 mL water before and after feedings and every 4 hours during continuous feeding.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Kept the head of bed elevated and maintained elevation for at least 1 hour after infusion completion.</span></li>
+					</ul>
+
+					<h3 class="font-semibold mt-4">Completion and Documentation</h3>
+					<ul class="space-y-2">
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Helped the patient into a comfortable position and ensured head of bed remained elevated 30 to 45 degrees.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Placed call light within easy reach and verified patient understanding of how to summon assistance.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Raised appropriate side rails and lowered bed to the lowest position.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Disposed of used supplies and equipment and left the room tidy.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Removed gloves, if used, and performed hand hygiene.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Documented and reported patient response and expected or unexpected outcomes.</span></li>
+					</ul>
+				</div>
+			</div>
+
 			<SkillResourceModal />
 		</main>
 	</body>
 </html>
+
+<script>
+	function updateProgress() {
+		const items = document.querySelectorAll('.cl-item');
+		const checked = document.querySelectorAll('.cl-item:checked').length;
+		const progress = document.getElementById('cl-progress') as HTMLProgressElement;
+		const count = document.getElementById('cl-count');
+		if (progress) progress.value = checked;
+		if (count) count.textContent = `${checked} / ${items.length}`;
+	}
+
+	function resetChecklist() {
+		document.querySelectorAll('.cl-item').forEach((el) => {
+			(el as HTMLInputElement).checked = false;
+		});
+		updateProgress();
+	}
+
+	document.querySelectorAll('.cl-item').forEach((el) => {
+		el.addEventListener('change', updateProgress);
+	});
+</script>

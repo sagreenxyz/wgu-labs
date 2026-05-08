@@ -30,7 +30,221 @@ import SkillResourceModal from "../../../components/SkillResourceModal.astro";
 					</a>
 				</div>
 			</section>
+
+			<!-- Checklist -->
+			<div class="card bg-base-100 shadow-xl mt-6">
+				<div class="card-body">
+					<h2 class="card-title text-2xl">Checklist</h2>
+					<div class="flex items-center gap-4 mb-4">
+						<progress id="cl-progress" class="progress progress-success flex-1" value="0" max="120"></progress>
+						<span id="cl-count" class="text-sm font-medium">0 / 120</span>
+						<button onclick="resetChecklist()" class="btn btn-sm btn-outline">Reset</button>
+					</div>
+
+					<h3 class="font-semibold mt-2">General Inspection</h3>
+					<ul class="space-y-2">
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Performed an initial focused inspection.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Assessed patient's mobility, posture, build, any deformities, dress, and grooming.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Assessed complexion for any discoloration.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Measured the patient's height and weight.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Checked distance vision (CN II) with a well-lit Snellen or Sloan chart, testing each eye individually.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Took the patient's vital signs.</span></li>
+					</ul>
+
+					<h3 class="font-semibold mt-4">Head and Face</h3>
+					<ul class="space-y-2">
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Inspected skin, eyes, ears, and skull.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Inspected and palpated the scalp and hair.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Palpated the temporomandibular joints.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Palpated the facial bones and frontal and maxillary sinuses.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Tested cranial nerve VII.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Tested cranial nerve V.</span></li>
+					</ul>
+
+					<ul class="space-y-2 mt-2">
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Inspected the external eye structures.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Palpated the lacrimal glands.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Tested near vision.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Assessed pupillary light response.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Assessed accommodation.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Checked the corneal light reflex.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Assessed extraocular movements.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Tested the movement of the patient's eyes through the six cardinal points of gaze.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Assessed visual fields.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Tested the red reflex.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Inspected the retina.</span></li>
+					</ul>
+
+					<ul class="space-y-2 mt-2">
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Inspected the ears and palpated the auricles.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Evaluated hearing.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Inspected the external auditory canals and tympanic membranes.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Performed Rinne test.</span></li>
+					</ul>
+
+					<ul class="space-y-2 mt-2">
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Inspected the nose and checked nostril patency.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Inspected the nasal mucosa, septum, and turbinates.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Tested sense of smell.</span></li>
+					</ul>
+
+					<ul class="space-y-2 mt-2">
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Inspected the mouth and pharynx.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Inspected the lips, buccal mucosa, teeth, gums, and tongue.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Inspected the oropharynx.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Had the patient say "Ah".</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Checked the gag reflex.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Checked taste response.</span></li>
+					</ul>
+
+					<h3 class="font-semibold mt-4">Neck</h3>
+					<ul class="space-y-2">
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Inspected the neck structures.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Tested neck range of motion.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Checked shrug against resistance.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Palpated carotid arteries, trachea, and thyroid gland.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Palpated regional lymph nodes.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Auscultated carotid arteries and the thyroid gland.</span></li>
+					</ul>
+
+					<h3 class="font-semibold mt-4">Upper Extremities</h3>
+					<ul class="space-y-2">
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Inspected the hands, arms, and shoulders.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Inspected muscle mass and strength.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Checked joint ranges of motion.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Assessed the pulses.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Palpated the epitrochlear nodes.</span></li>
+					</ul>
+
+					<h3 class="font-semibold mt-4">Back</h3>
+					<ul class="space-y-2">
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Inspected the back.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Checked skin, shape, symmetry, and muscle development.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Inspected and palpated spine and scapulae; percussed the spine.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Percussed the costovertebral angle.</span></li>
+					</ul>
+
+					<h3 class="font-semibold mt-4">Lungs</h3>
+					<ul class="space-y-2">
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Observed for excursion.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Noted respiratory characteristics.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Checked thoracic expansion.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Palpated for tactile fremitus.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Percussed for resonance.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Percussed for diaphragmatic excursion.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Auscultated breath sounds.</span></li>
+					</ul>
+
+					<h3 class="font-semibold mt-4">Chest, Breasts, and Precordium</h3>
+					<ul class="space-y-2">
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Performed a general inspection.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Inspected skin, muscles, and respirations.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Palpated the chest wall.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Palpated the precordium and located the point of maximal impulse.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Palpated the lymph nodes.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Percussed for resonance.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Auscultated for heart sounds.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Inspected the breasts.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Palpated the breasts in the four seated positions.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Inspected the precordium.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Examined jugular vein and estimated jugular-venous pressure.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Palpated each breast with patient's arm above head.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Palpated the chest wall.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Auscultated the heart.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Auscultated with the patient turned on the left side.</span></li>
+					</ul>
+
+					<h3 class="font-semibold mt-4">Abdomen</h3>
+					<ul class="space-y-2">
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Inspected abdominal skin.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Auscultated for bowel sounds.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Auscultated for bruits and venous hums.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Percussed all four quadrants.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Estimated liver span and checked for splenic dullness.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Palpated lightly, moderately, and deeply in all quadrants.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Palpated for specific organs.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Tested the abdominal reflexes.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Assessed femoral pulses and inguinal lymph nodes.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Inspected contraction of abdominal muscles.</span></li>
+					</ul>
+
+					<h3 class="font-semibold mt-4">Lower Extremities</h3>
+					<ul class="space-y-2">
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Inspected feet and legs.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Palpated temperature and texture.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Tested for edema.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Assessed the lower extremity pulses.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Assessed toe ranges of motion.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Assessed range of motion of the feet, ankles, and knees.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Inspected hips and tested range of motion and strength.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Assessed coordination, muscle use, and ease of movement.</span></li>
+					</ul>
+
+					<h3 class="font-semibold mt-4">Neurologic System</h3>
+					<ul class="space-y-2">
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Assessed sensory and motor function, coordination, position sense, reflexes, spinal motion, proprioception, cerebellar function, and balance.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Assessed sensory function.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Tested vibratory function.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Assessed two-point discrimination.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Tested stereognosis and graphesthesia.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Tested fine motor function and coordination.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Tested position sense.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Tested spinal reflexes bilaterally.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Inspected and palpated the spine and tested spinal movements.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Checked proprioception and cerebellar function.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Had the patient close their eyes and stand on each foot separately, then open their eyes and hop on each foot.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Observed patient's gait.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Assessed balance.</span></li>
+					</ul>
+
+					<h3 class="font-semibold mt-4">Genitalia</h3>
+					<ul class="space-y-2">
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Assessed male genitalia.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Inspected the external structures.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Palpated the scrotal contents.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Tested for inguinal and femoral hernias.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Inspected the patient's sacrococcygeal and perianal areas.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Obtained a rectal culture if needed.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Palpated the prostate gland and seminal vesicles.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Noted characteristics of stool and tested it for occult blood if indicated.</span></li>
+					</ul>
+
+					<ul class="space-y-2 mt-2">
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Assessed female genitalia.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Inspected external genitalia.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Palpated labia and glands.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Performed a speculum examination and collected specimens as needed.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Performed bimanual palpation.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Performed a rectovaginal examination.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Performed a rectal exam.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Obtained a rectal culture if needed, noted stool characteristics, and tested for occult blood if indicated.</span></li>
+					</ul>
+				</div>
+			</div>
+
 			<SkillResourceModal />
 		</main>
 	</body>
 </html>
+
+<script>
+	function updateProgress() {
+		const items = document.querySelectorAll('.cl-item');
+		const checked = document.querySelectorAll('.cl-item:checked').length;
+		const progress = document.getElementById('cl-progress') as HTMLProgressElement;
+		const count = document.getElementById('cl-count');
+		if (progress) progress.value = checked;
+		if (count) count.textContent = `${checked} / ${items.length}`;
+	}
+
+	function resetChecklist() {
+		document.querySelectorAll('.cl-item').forEach((el) => {
+			(el as HTMLInputElement).checked = false;
+		});
+		updateProgress();
+	}
+
+	document.querySelectorAll('.cl-item').forEach((el) => {
+		el.addEventListener('change', updateProgress);
+	});
+</script>

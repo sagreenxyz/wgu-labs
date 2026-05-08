@@ -38,7 +38,107 @@ import SkillResourceModal from "../../../components/SkillResourceModal.astro";
 					</div>
 				</div>
 			</section>
+
+			<!-- Checklist -->
+			<div class="card bg-base-100 shadow-xl mt-6">
+				<div class="card-body">
+					<h2 class="card-title text-2xl">Checklist</h2>
+					<div class="flex items-center gap-4 mb-4">
+						<progress id="cl-progress" class="progress progress-success flex-1" value="0" max="24"></progress>
+						<span id="cl-count" class="text-sm font-medium">0 / 24</span>
+						<button onclick="resetChecklist()" class="btn btn-sm btn-outline">Reset</button>
+					</div>
+
+					<ul class="space-y-2">
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Verified the health care provider's orders.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Gathered the necessary equipment and supplies.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Performed hand hygiene.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Provided for the patient's privacy.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Introduced self to the patient and family.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Identified the patient using two identifiers.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Explained the procedure to the patient and ensured agreement to treatment.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Assessed the patient's risk for pain.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Asked whether patient had pain or discomfort and assessed current pain using an organization-approved pain scale.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Assessed response to previous pharmacological interventions and determined previous responses to analgesics.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Assessed physical, behavioral, and emotional signs and symptoms of pain.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Assessed characteristics of pain following agency policy for pain scale selection and frequency.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Used a visual analog or Likert scale, if needed.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Used the PQRSTU mnemonic to assess pain.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Examined site of pain or discomfort when possible.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Inspected for discoloration, swelling, or drainage; palpated for temperature change, altered sensation, pain, or trigger areas; observed ROM of involved joints; and used percussion/auscultation when necessary.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>As follow-up, provided pharmacologic and nonpharmacologic or complementary pain relief measures.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Reassessed the patient's pain one hour later.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Helped the patient into a comfortable position, maintained proper body alignment, and placed toiletries and personal items within reach.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Placed call light within easy reach and ensured the patient knew how to summon assistance.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Raised the appropriate number of side rails and lowered bed to lowest position.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Disposed of used supplies and equipment and left room tidy.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Removed and disposed of gloves when used and performed hand hygiene.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Documented and reported patient response and expected or unexpected outcomes.</span></li>
+					</ul>
+				</div>
+			</div>
+
+			<!-- Summary -->
+			<div class="card bg-base-100 shadow-xl mt-6">
+				<div class="card-body">
+					<h2 class="card-title text-2xl">Summary</h2>
+					<ul class="list-disc list-inside space-y-1">
+						<li>Begin with safety and communication: hand hygiene, privacy, patient identification, explanation of procedure, and informed participation</li>
+						<li>Screen for pain risk factors such as invasive procedures, communication barriers, anxiety, and previous pain history</li>
+						<li>Use approved pain scales consistently and follow agency policy for tool selection and reassessment frequency</li>
+						<li>Assess current pain and prior treatment response, including effectiveness of analgesics and any adverse effects</li>
+						<li>Evaluate observable physical, behavioral, and emotional indicators (for example guarding, grimacing, irritability, sleep disturbance, or withdrawal)</li>
+						<li>Use PQRSTU to capture pain pattern and impact: provoking/palliating factors, quality, region/radiation, severity, timing, and effect on daily life</li>
+						<li>Perform focused examination of pain site: inspection, palpation, range of motion, and percussion/auscultation as indicated</li>
+						<li>Provide both pharmacologic and nonpharmacologic relief strategies and reassess pain response after intervention</li>
+						<li>Complete post-care safety measures: comfort positioning, call light access, side rails/bed position, tidy environment, and hand hygiene</li>
+						<li>Document findings, interventions, patient response, and expected or unexpected outcomes clearly and promptly</li>
+					</ul>
+				</div>
+			</div>
+
+			<!-- Transcript -->
+			<div class="card bg-base-100 shadow-xl mt-6">
+				<div class="card-body">
+					<h2 class="card-title text-2xl">Transcript</h2>
+					<p>Perform hand hygiene. Then ensure privacy and introduce yourself to the patient. Then identify her using two identifiers.</p>
+					<p>To assess pain, first determine the patient's risk factors. Having an invasive procedure, being unable to communicate, or having feelings of anxiety, regardless of the cause, may all put the patient at a higher risk for pain.</p>
+					<p>Ask the patient if she's feeling any discomfort right now. Keep in mind that generational norms or cultural barriers might make her reluctant to admit to having pain. Consider asking if anything "hurts" or if she has "discomfort," rather than using the word "pain."</p>
+					<p>Assess her response to prescribed pain medication. Is she sleeping well? What and how much is she eating? Is she having any trouble taking care of herself? Also find out if the medication is having any side effects, such as itching or nausea.</p>
+					<p>Assess the patient for physical, behavioral, and emotional signs and symptoms of pain. Moaning, crying, and whimpering are easily observable signs. But grimacing, clenching the teeth, and sweating may be more difficult to interpret. Other clues that indicate pain are guarding or muscle tension in the painful area. Notice if your patient seems to be less active or more irritable than usual, or if she seems confused or behaves uncharacteristically. These may be signs that she's having pain. Also keep an eye out for abnormal gait, decreased GI motility, anorexia, nausea, or vomiting, and insomnia, fatigue, or restlessness. A patient who's uncomfortable might seem depressed or express feelings of depression, hopelessness, anger, or fear. She might become socially withdrawn. Lab tests may show a spike in the level of blood glucose. Remember to ask about symptoms that often accompany pain, such as headache and constipation.</p>
+					<p>Your agency's policy will specify which pain scale to use and how often to assess for pain. A visual analog scale or a Likert scale may be used. A Likert scale rates pain from 1, representing the least possible pain, to 10, the highest level of pain.</p>
+					<p>Use the PQRSTU mnemonic to assess specific characteristics of the pain. First, the P: check for factors that Provoke or Palliate the pain, in other words, what makes it better or worse? Ask your patient to tell you about any over-the-counter drugs, including topical preparations and herbals, that have made her feel better in the past.</p>
+					<p>Next, ask about the Quality of the pain. Use open-ended cues, such as, "Tell me what your pain feels like." Then determine the pain's Region and the areas to which it radiates by saying, for instance, "Show me where your pain is."</p>
+					<p>The S is for Severity. Select a pain intensity scale appropriate to the patient's age, developmental stage, and level of comprehension, and ask her to use the scale to rate the severity of her pain before any interventions. Specifically, ask how much discomfort the patient has when she's moving, and not just when she's lying in bed or sitting still.</p>
+					<p>Next, ask about Timing. Is the pain constant, intermittent, or something in between? Find out if the pain is more intense at specific times of the day or night, during particular activities, or in a specific location of the body.</p>
+					<p>The U in the PQRSTU mnemonic is short for YOU. Pain is personal. Ask your patient how the pain affects her work, her relationships, and her enjoyment of life in general.</p>
+					<p>If she reports having pain, examine the site of the discomfort. Look for discoloration, swelling, or drainage. Palpate the area for temperature changes, altered sensation, pain, or areas that trigger pain. Note the range of motion of any involved joints. Use percussion and auscultation to help identify the cause of an abnormality, such as lung crackles or any unusual mass. When you assess the abdomen, always auscultate first, and then follow with inspection and palpation.</p>
+					<p>As part of your follow-up care, provide pharmacologic and nonpharmacologic pain relief measures. Reassess the patient's pain an hour later.</p>
+				</div>
+			</div>
 			<SkillResourceModal />
 		</main>
 	</body>
 </html>
+
+<script>
+	function updateProgress() {
+		const items = document.querySelectorAll('.cl-item');
+		const checked = document.querySelectorAll('.cl-item:checked').length;
+		const progress = document.getElementById('cl-progress') as HTMLProgressElement;
+		const count = document.getElementById('cl-count');
+		if (progress) progress.value = checked;
+		if (count) count.textContent = `${checked} / ${items.length}`;
+	}
+
+	function resetChecklist() {
+		document.querySelectorAll('.cl-item').forEach((el) => {
+			(el as HTMLInputElement).checked = false;
+		});
+		updateProgress();
+	}
+
+	document.querySelectorAll('.cl-item').forEach((el) => {
+		el.addEventListener('change', updateProgress);
+	});
+</script>

@@ -38,7 +38,161 @@ import SkillResourceModal from "../../../components/SkillResourceModal.astro";
 					</div>
 				</div>
 			</section>
+
+			<!-- Checklist -->
+			<div class="card bg-base-100 shadow-xl mt-6">
+				<div class="card-body">
+					<h2 class="card-title text-2xl">Checklist</h2>
+					<div class="flex items-center gap-4 mb-4">
+						<progress id="cl-progress" class="progress progress-success flex-1" value="0" max="44"></progress>
+						<span id="cl-count" class="text-sm font-medium">0 / 44</span>
+						<button onclick="resetChecklist()" class="btn btn-sm btn-outline">Reset</button>
+					</div>
+
+					<h3 class="font-semibold mt-2">Preparation</h3>
+					<ul class="space-y-2">
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Verified the health care provider's orders.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Gathered the necessary equipment and supplies.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Provided for patient privacy, performed hand hygiene, and donned gloves.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Introduced self to the patient.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Explained procedure and ensured patient agreement to treatment, including self-administration directions when applicable.</span></li>
+					</ul>
+
+					<h3 class="font-semibold mt-4">Medication Preparation</h3>
+					<ul class="space-y-2">
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Kept medication room door closed, declined phone calls, and followed the No Interruption Zone policy.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Arranged tray and cup in drug preparation area and accessed dispensing system or medication drawer/cart.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Prepared medications for one patient at a time and followed the six rights of medication administration.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Selected the correct drug and confirmed medication name by comparing label with MAR.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>If label dosage did not match prescribed dosage, checked/calculated the correct amount, double-checked calculations, checked expiration, and returned outdated medication to pharmacy.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>For unit-dose tablets/capsules, compared packaged dose with MAR and placed in medication cup without removing wrapper.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Used one medication cup for tablets/capsules and a separate cup for medications requiring pre-assessment.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>If half-tablet needed, split a scored tablet with a clean pill-cutting device and discarded the other half.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>If swallowing difficulty existed, crushed each medication separately when appropriate and mixed each into a small amount of soft food.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>For controlled substances, checked prior controlled-drug count against remaining supply per policy.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Before entering room, verified patient name on MAR against prepared drug labels and logged out of dispensing system.</span></li>
+					</ul>
+
+					<h3 class="font-semibold mt-4">Administration</h3>
+					<ul class="space-y-2">
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Took oral medications to patient at correct time, administered time-critical meds precisely, and applied six rights throughout.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Performed hand hygiene.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Provided for patient's privacy.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Introduced self to patient and family.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Identified patient using two identifiers.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>For highly acidic medications, offered a nonfat snack if not contraindicated.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>At bedside, compared MAR with medication labels and patient name again.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Performed necessary preadministration assessments for specific medications.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Discussed purpose, action, and possible adverse effects, and allowed patient questions.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Administered tablets/capsules in sitting or side-lying position and offered compatible preferred liquids.</span></li>
+					</ul>
+
+					<h3 class="font-semibold mt-4">Special Medication Forms</h3>
+					<ul class="space-y-2">
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>For liquids, mixed thoroughly unless unit-dose with correct volume; for multi-dose bottles, removed cap and placed it upside-down on work surface.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Held bottle label against palm while pouring.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Poured liquid on level surface to desired amount and labeled cup with medication name/dose if not given immediately.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Wiped lip and neck of bottle and recapped bottle.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Used an oral syringe for doses less than 10 mL.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>For orally disintegrating formulations, peeled foil, removed just before use, placed on tongue, and cautioned against chewing.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>For buccal medications, had patient place medication against cheek and gums until dissolved.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>For sublingual medications, had patient place medication under tongue to dissolve completely and cautioned against chewing/swallowing tablets or lozenges.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>For powdered medications, mixed with liquid at bedside and gave immediately.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>If patient could not hold medications, placed cup to lips and introduced each drug slowly one at a time without rushing or forcing.</span></li>
+					</ul>
+
+					<h3 class="font-semibold mt-4">Completion and Documentation</h3>
+					<ul class="space-y-2">
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Stayed until patient completely swallowed each medication or took it by prescribed route; checked mouth if unsure.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Helped patient return to a comfortable position.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Disposed of soiled supplies, removed/discarded gloves, and performed hand hygiene.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Placed toiletries and personal items within reach.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Placed call light within reach and ensured patient knew how to use it.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Raised appropriate side rails and lowered bed to lowest position.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Left patient's room tidy.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Documented medication administration immediately after administration.</span></li>
+					</ul>
+				</div>
+			</div>
+
+			<!-- Summary -->
+			<div class="card bg-base-100 shadow-xl mt-6">
+				<div class="card-body">
+					<h2 class="card-title text-2xl">Summary</h2>
+					<ul class="list-disc list-inside space-y-1">
+						<li>Verify provider order, MAR, and medication label three times, and apply the six rights throughout preparation and administration</li>
+						<li>Use a no-interruption workflow and prepare medications for one patient at a time to reduce medication errors</li>
+						<li>Check dosage calculations carefully, avoid giving unlabeled or expired meds, and never leave medications unattended</li>
+						<li>Use correct preparation method for each form: whole tablets/capsules, split scored tablets, crushed meds (separately), liquids, powders, ODTs, buccal, sublingual, and lozenges</li>
+						<li>For controlled substances, reconcile medication count with records before administration</li>
+						<li>At bedside, confirm patient identity with two identifiers, ask about allergies, and complete any required preadministration assessments</li>
+						<li>Administer with patient positioned safely, ensure compatibility with fluids/food, and stay until each medication is swallowed</li>
+						<li>Use oral syringes for small liquid doses and avoid any needle-containing syringes for oral medications</li>
+						<li>Document immediately after administration and monitor therapeutic response and side effects</li>
+						<li>Reinforce teaching by reviewing the medication regimen with the patient and family</li>
+					</ul>
+				</div>
+			</div>
+
+			<!-- Images -->
+			<div class="card bg-base-100 shadow-xl mt-6">
+				<div class="card-body">
+					<figure class="my-4 flex flex-col">
+						<img src={`${import.meta.env.BASE_URL}/skills/images/multi-dose-liquid-cap-upright-cover-bottle-label-with-hand.png`} alt="Nurse places multi-dose medication bottle cap upside down and covers label with hand while pouring" class="rounded-lg max-w-full" />
+						<figcaption class="text-sm text-base-content/60 mt-2">Place the cap upside down on the table and cover the bottle label with your hand while pouring to protect the label from leaks.</figcaption>
+					</figure>
+					<figure class="my-4 flex flex-col">
+						<img src={`${import.meta.env.BASE_URL}/skills/images/pouring-liquid-medication-into-medicine-cup.png`} alt="Pouring liquid medication into medicine cup on a level surface" class="rounded-lg max-w-full" />
+						<figcaption class="text-sm text-base-content/60 mt-2">Place medicine cup on level surface and read at eye level while pouring.</figcaption>
+					</figure>
+				</div>
+			</div>
+
+			<!-- Transcript -->
+			<div class="card bg-base-100 shadow-xl mt-6">
+				<div class="card-body">
+					<h2 class="card-title text-2xl">Transcript</h2>
+					<p>Before you prepare an oral medication, verify the health care provider's orders, gather your supplies, and perform hand hygiene. As you work, avoid interruptions: keep the door to the medication room closed, and don't take telephone calls. Follow your agency's "No Interruption Zone" policy. Arrange the medication tray and cup in a drug preparation area. Prepare drugs for one patient at a time.</p>
+					<p>As you proceed, observe the six rights of medication administration: right medication, right patient, right dose, right route, right time, and right documentation. For details, see the Video Skill, "Ensuring the Six Rights of Medication Administration." Obtain the correct drug from the automated dispensing system, unit-dose drawer, or stock supply.</p>
+					<p>All medications must be verified three times. Confirm the name of the medication by comparing the label with the MAR. This is your first check. If the dosages given on the labels don't match, check or calculate the correct amount to give. Double-check any calculations you make. Return any expired meds to the pharmacy.</p>
+					<p>Place the packaged unit-dose tablets or capsules directly into the medication cup, without unwrapping them. If any medication is not clearly labeled, don't administer it. If you'll be giving tablets and capsules, use a single medication cup. For some meds, you'll need to do an assessment first, such as taking a blood pressure or pulse. Place those medications in a separate cup as a reminder to perform the assessments.</p>
+					<p>If your patient needs only half a pill or tablet, the pharmacy will split, label, and package the dose that way, or you can ask them to do so. If you have to break a pill yourself, place the scored tablet into a clean pill-splitting device. Split the tablet, and discard the other half. Don't split any pill that has not been scored by the manufacturer.</p>
+					<p>If the patient has trouble swallowing, crush the pill with a pill crusher. Then mix the crushed tablet with a small amount of soft food, such as applesauce or custard. Remember to give each crushed medication separately. Controlled substances, such as opioids, will be stored in a secure, locked compartment of the dispensing unit. When you retrieve such a medication, compare the count in the record with the supply of controlled drugs remaining, to be sure they match. And of course, never leave any medication unattended.</p>
+					<p>Before you go to the patient's room, verify the patient's name on the MAR. This is your second patient identification check. You will perform the third check at the patient's bedside. If you used the automated dispensing system, log out after you remove the drugs.</p>
+					<p>To administer an oral medication, take it to the patient at the correct time. Stat and now doses must be given precisely when ordered. As you proceed, continue to apply each of the six rights of medication administration. Perform hand hygiene, ensure privacy, and introduce yourself to the patient. Identify him using two identifiers. Remember to ask him if he has any allergies. Highly acidic medications, such as aspirin, can be given with a snack, such as crackers, if food is not contraindicated.</p>
+					<p>At the patient's bedside, again match up the MAR with the names of the medications, as shown on their labels, and with the patient's name. This is your third check. If needed, perform preadministration assessments, such as taking a pulse or blood pressure. Discuss the purpose of each medication, its action, and its possible side effects. Give the patient an opportunity to ask questions.</p>
+					<p>Administer tablets or capsules with the patient in a seated or side-lying position. Let him swallow them with water, juice, or whatever he likes to drink, but make sure the medication is compatible with it. He may want to hold the pills in his hand or in a cup before swallowing them.</p>
+					<p>To prepare a liquid, gently shake the bottle to thoroughly mix it, unless it's in a unit-dose container. In that case, it's not necessary to shake it. If the medication is in a multi-dose bottle, remove the cap, set it upside down on the med cart, and hold the label of the bottle against your palm, to protect the label's integrity. Place the medication cup on a level surface, where you can read it at eye level. Then pour the liquid into the cup. The printed or embossed line indicating the correct dosage should be even with the bottom of the fluid meniscus, that is, the surface of the liquid. When you're finished, wipe the lip and neck of the bottle with a clean paper towel and replace the cap.</p>
+					<p>If you're giving a dose of less than ten milliliters, draw the liquid into an oral syringe. Don't use a hypodermic syringe, or any syringe that has a needle.</p>
+					<p>Orally disintegrating formulations of tablets or strips must be removed from the package just before you administer them. Tear open the package carefully, don't try to push the tablet through the foil. Place the medication on top of the patient's tongue, and remind her not to chew it.</p>
+					<p>A buccal drug must be in contact with the mucous membranes of the cheek. A sublingual drug, as its name suggests, is placed under the tongue. Advise the patient that a sublingual or buccal drug must dissolve in the mouth in order to be absorbed through the oral mucosa. If the tablet is chewed or swallowed, it can't be absorbed properly in the GI tract. Likewise, lozenges should be allowed to dissolve in the mouth.</p>
+					<p>To administer a powdered medication, mix it with liquid at the bedside as directed by the manufacturer, and give it to the patient to drink. If the patient has trouble holding a medication, place the cup, spoon, or straw to her lips and gently introduce each drug, one at a time. Be patient, and don't rush it. Stay until the patient has swallowed each medication. If you're not sure, ask her to open her mouth, and take a look.</p>
+					<p>Document the medication immediately after administration, not before. As part of your follow-up care, keep an eye on the patient to see how he responds to the medication. Review the drug regimen with the patient or family.</p>
+				</div>
+			</div>
 			<SkillResourceModal />
 		</main>
 	</body>
 </html>
+
+<script>
+	function updateProgress() {
+		const items = document.querySelectorAll('.cl-item');
+		const checked = document.querySelectorAll('.cl-item:checked').length;
+		const progress = document.getElementById('cl-progress') as HTMLProgressElement;
+		const count = document.getElementById('cl-count');
+		if (progress) progress.value = checked;
+		if (count) count.textContent = `${checked} / ${items.length}`;
+	}
+
+	function resetChecklist() {
+		document.querySelectorAll('.cl-item').forEach((el) => {
+			(el as HTMLInputElement).checked = false;
+		});
+		updateProgress();
+	}
+
+	document.querySelectorAll('.cl-item').forEach((el) => {
+		el.addEventListener('change', updateProgress);
+	});
+</script>

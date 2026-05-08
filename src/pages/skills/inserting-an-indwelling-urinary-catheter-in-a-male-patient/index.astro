@@ -38,7 +38,173 @@ import SkillResourceModal from "../../../components/SkillResourceModal.astro";
 					</div>
 				</div>
 			</section>
+
+			<!-- Checklist -->
+			<div class="card bg-base-100 shadow-xl mt-6">
+				<div class="card-body">
+					<h2 class="card-title text-2xl">Checklist</h2>
+					<div class="flex items-center gap-4 mb-4">
+						<progress id="cl-progress" class="progress progress-success flex-1" value="0" max="56"></progress>
+						<span id="cl-count" class="text-sm font-medium">0 / 56</span>
+						<button onclick="resetChecklist()" class="btn btn-sm btn-outline">Reset</button>
+					</div>
+
+					<h3 class="font-semibold mt-2">Preparation</h3>
+					<ul class="space-y-2">
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Verified the health care provider's orders.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Reviewed the medical record for any issues that may hinder the procedure.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Provided for the patient's privacy.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Performed hand hygiene.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Introduced self to the patient and family.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Identified the patient using two identifiers.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Explained the provider's order and the procedure and ensured patient agreement to treatment.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Examined the patient using a bladder scanner or by palpating for bladder distention.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Gathered equipment and supplies, confirmed catheter size/type from plan of care for reinsertion, and used the smallest-size catheter possible.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Performed hand hygiene, applied clean gloves, and donned appropriate PPE.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Raised the bed to a comfortable working height and adjusted side rails.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Positioned the patient supine.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Draped upper and lower body so only the perineum was exposed.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Ensured a waterproof absorbent pad was under the patient.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Washed the perineal area with soap and water, rinsed, and dried.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Identified the urinary meatus and retracted foreskin if needed; removed and discarded used gloves.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Performed hand hygiene.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Positioned a trash can nearby or placed a bag between nurse and patient.</span></li>
+					</ul>
+
+					<h3 class="font-semibold mt-4">Sterile Setup</h3>
+					<ul class="space-y-2">
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Opened the outer catheter kit wrapper, placed outer wrap for waste disposal, and placed inner tray on a clean surface.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>For an open system, opened the drainage bag package and confirmed drainage-port clamp was closed.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Placed drainage bag and tubing in an accessible sterile location.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Applied sterile gloves.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Unfolded square drape without contamination and formed a cuff with the top edge.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Placed drape over thighs and centered fenestration over the penis.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Opened sterile antiseptic solution and saturated sterile cotton balls.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Opened lubricant packet and placed lubricant on sterile field.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Opened inner sterile wrapper of the catheter.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Lubricated the catheter.</span></li>
+					</ul>
+
+					<h3 class="font-semibold mt-4">Meatal Cleansing and Insertion</h3>
+					<ul class="space-y-2">
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>With nondominant hand, grasped penile shaft below glans, retracted foreskin if uncircumcised, and held penis at right angle.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>With dominant hand, cleansed meatus using circular strokes from meatus outward in spiral motion.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Repeated cleansing three times with new cotton ball/swab each pass and discarded without contaminating field.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Picked up catheter 7.5 cm to 10 cm from tip with catheter loosely coiled in palm.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Applied upward traction to penis while holding it at a 90-degree angle to the body.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Asked patient to push down as if to void and slowly inserted catheter through meatus.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>If catheter was not connected to collection device, ensured urine drained into a sterile container.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Advanced catheter 17 cm to 22.5 cm or until urine flowed, then advanced to bifurcation.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Stopped advancement if resistance occurred or patient reported pain.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Lowered penis and held catheter securely with nondominant hand.</span></li>
+					</ul>
+
+					<h3 class="font-semibold mt-4">Balloon Inflation and Securement</h3>
+					<ul class="space-y-2">
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Inflated balloon with manufacturer-designated fluid amount and did not use 0.9% sodium chloride.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Connected prefilled syringe to injection port.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Slowly injected total inflation solution.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Released catheter after inflation and gently pulled until resistance was felt.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Removed sterile gloves, performed hand hygiene, and applied clean gloves.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Secured catheter with strap or securement device at or above bifurcation with enough slack for leg movement.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Secured tubing to upper medial inner thigh or lower abdomen with penis directed toward chest and adequate slack to avoid tension.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Positioned drainage bag below bladder and attached it to bed frame.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Coiled excess tubing on bed, secured tubing to sheet, and ensured no kinks or obstructions.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>If foreskin was retracted, cleaned off iodine prep and replaced foreskin over the glans penis.</span></li>
+					</ul>
+
+					<h3 class="font-semibold mt-4">Completion and Documentation</h3>
+					<ul class="space-y-2">
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Provided hygiene as needed and helped patient to a comfortable position with personal items in reach.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Provided patient teaching using Teach Back to promote understanding.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Raised appropriate side rails and lowered bed to lowest position.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Disposed of supplies in appropriate receptacles.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Removed and disposed of gloves and performed hand hygiene.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Measured and recorded urine output and urine characteristics.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Documented amount of urine and its characteristics.</span></li>
+						<li class="flex items-start gap-2"><input type="checkbox" class="checkbox checkbox-sm cl-item mt-1" /><span>Documented and reported patient response and expected or unexpected outcomes.</span></li>
+					</ul>
+				</div>
+			</div>
+
+			<!-- Summary -->
+			<div class="card bg-base-100 shadow-xl mt-6">
+				<div class="card-body">
+					<h2 class="card-title text-2xl">Summary</h2>
+					<ul class="list-disc list-inside space-y-1">
+						<li>Verify the order, review contraindications and risk factors (such as possible prostate enlargement), and explain the procedure before starting</li>
+						<li>Use strict hand hygiene and aseptic technique throughout setup, meatal cleansing, insertion, and balloon inflation</li>
+						<li>Position the patient supine, expose only the perineum, and perform perineal care before opening the sterile catheter kit</li>
+						<li>Use sterile setup correctly: drape field, prepare antiseptic/lubricant, and maintain sterility of gloves, tray, catheter, and drainage components</li>
+						<li>Cleanse the meatus in outward circular strokes, using a new swab/cotton ball for each pass</li>
+						<li>Insert catheter with gentle traction at 90 degrees; advance until urine return, then to bifurcation, stopping for resistance or pain</li>
+						<li>Inflate balloon with manufacturer-recommended solution volume and never force inflation if placement is uncertain</li>
+						<li>Secure catheter and tubing with slack, keep drainage bag below bladder, and ensure unobstructed urine flow without kinks</li>
+						<li>For uncircumcised patients, replace foreskin over the glans after cleansing to prevent complications</li>
+						<li>Complete patient teaching using Teach Back, then document catheter details, balloon volume, tolerance, urine output, and any complications</li>
+					</ul>
+				</div>
+			</div>
+
+			<!-- Transcript -->
+			<div class="card bg-base-100 shadow-xl mt-6">
+				<div class="card-body">
+					<h2 class="card-title text-2xl">Transcript</h2>
+					<p>Inserting an Indwelling Urinary Catheter in a Male Patient. When preparing to insert an indwelling urinary catheter in a male patient, first review his medical record for any issues that may hinder the procedure, such as prostate enlargement.</p>
+					<p><strong>NURSE:</strong> Hi.</p>
+					<p>After ensuring privacy and performing hand hygiene, introduce yourself to the patient. Then identify the patient using two identifiers.</p>
+					<p><strong>NURSE:</strong> Hi, my name is Chad. I'm going to be your nurse today.<br/><strong>NURSE:</strong> Can you give me your name and date of birth?</p>
+					<p>Explain to your patient that his provider has ordered placement of an indwelling urinary catheter, and describe the insertion procedure.</p>
+					<p><strong>NURSE:</strong> The doctor has ordered a catheter to be placed into your bladder.<br/><strong>NURSE:</strong> I'm going to lower your head a little bit and feel around on your abdomen, ok?<br/><strong>NURSE:</strong> I'm going to slide your gown up so I can see your abdomen.</p>
+					<p>Then examine the patient by palpating his bladder for distention or by using a bladder scanner. Collect the required equipment for the procedure. Select the smallest catheter size possible. Perform hand hygiene and apply clean gloves.</p>
+					<p><strong>NURSE:</strong> Hi.<br/><strong>PATIENT:</strong> Hi.</p>
+					<p>Raise the bed to a comfortable working height and lower the rail on the working side.</p>
+					<p><strong>NURSE:</strong> I'm going to clean up the area where we are going to insert the catheter. Ok?<br/><strong>PATIENT:</strong> Alright.<br/><strong>NURSE:</strong> Lower your head just a bit again.<br/><strong>NURSE:</strong> I'm going to pull your blanket down and your gown up a little bit, ok?<br/><strong>PATIENT:</strong> Alright.<br/><strong>NURSE:</strong> Going to kind of expose you a little bit.</p>
+					<p>You may cover his upper body with a bath blanket and drape his lower body with a separate sheet or bath blanket, exposing only the perineum. Ensure there is a waterproof pad under your patient. Then help him into a supine position, with his legs extended and his thighs slightly abducted. Wash the perineum with soap and water, and then rinse and dry the area. Refer to the Video Skill "Performing Perineal Care for the Male Patient." While you're still wearing gloves, identify the patient's urinary meatus. Then remove and discard your gloves and perform hand hygiene.</p>
+					<p>Position a trash can on the floor nearby or place a bag between you and the patient. Next, remove the outer wrapping of the catheterization kit. As you open the catheter's outer package, maintain the sterility of the inner wrapper. Place the tray from the inner, wrapped catheter kit on a clean surface, such as the bedside table, or if possible, between the patient's open legs. The patient's size and positioning will dictate its placement.</p>
+					<p>If you're using a closed drainage system, all the supplies you'll need are in the sterile tray. Gently pick up the package of sterile gloves and remove it from the sterile field, then open the gloves on the table next to the sterile field, making sure the paper from the gloves doesn't touch the sterile field from the kit. Don the gloves. Leave the packaging on the table to discard later.</p>
+					<p>Drape the perineum while keeping your gloves sterile. First, pick up the square drape and let it unfold without touching any unsterile surface. Place this drape over the patient's thighs, shiny side down, just below the penis. Center the opening of the fenestrated drape over the penis.</p>
+					<p>In some kits, the sterile gloves are packed under the square sterile drape. In this case, pick up the square drape by its edges and let it unfold again, without touching any surface that's not sterile. Next, place the sterile tray on the sterile drape. This tray carries your cleansing medium: either premoistened swab sticks or cotton balls, forceps, and solution, a lubricant, the catheter, and a prefilled syringe with which you'll inflate the balloon.</p>
+					<p>Open the packet of lubricant, and squeeze it out onto the sterile field. Then open the sterile antiseptic solution, and pour it over the sterile cotton balls. Or, if your kit contains premoistened swab sticks, open the package so that you can get to them easily. Open the inner, sterile wrapper of the catheter. If it's a closed system, remove the tray with the catheter and its attached drainage bag on it. Make sure the clamp on the drainage port is closed. Lubricate the catheter by dipping it into the water-soluble gel to a depth of five to seven inches. That's about twelve to seventeen centimeters.</p>
+					<p><strong>NURSE:</strong> Ok, I'm going to go ahead and clean the area, it's going to be kind of cold.</p>
+					<p>With your nondominant hand, retract the foreskin if the patient is uncircumcised. Gently grasp the shaft of the penis just below the glans. Your hand will stay in this position for the remainder of the procedure. This hand is now contaminated. With your uncontaminated dominant hand, use your forceps to pick up a cotton ball or select a swab stick. Move in circular strokes, beginning at the meatus and working outward in a spiral pattern. Repeat this process three times, using a clean cotton ball or swab stick each time. Appropriately dispose of the used cotton ball or swabs, making sure they don't contaminate the sterile field.</p>
+					<p>Pick up the catheter three to four inches, that's seven point five to ten centimeters, from its tip. Gently apply upward traction to the penis to straighten the urethra. Slowly insert the catheter through the urethral meatus. If the catheter is not connected to a collection device, make sure it will drain into the sterile container. Advance the catheter seven to nine inches, or between seventeen and twenty-two point five centimeters, until urine flows out the end of the catheter. Don't force it if you feel resistance, or if the patient complains of pain. Ask him to take slow, deep breaths to promote relaxation. If you are having difficulty advancing the catheter, hold it in place for a few seconds to relax the sphincter. If you still can't advance the catheter, the patient may have an obstruction.</p>
+					<p>After urine appears, advance the catheter to the bifurcation of the drainage and balloon inflation ports. Then lower the penis, but continue to hold the catheter securely with your nondominant hand. Slowly inject the recommended amount of solution to inflate the balloon. Then release the catheter from your nondominant hand. Gently pull the catheter until you feel resistance. Then advance slightly, and connect the drainage tubing to the catheter if it was not preconnected.</p>
+					<p><strong>NURSE:</strong> I'm going to go switch my gloves and get you cleaned up.</p>
+					<p>Remove your sterile gloves, perform hand hygiene, and apply clean gloves. Secure the catheter with a strap or other securement device. Leave enough slack to allow leg movement. Attach the securement device just at the catheter bifurcation, and secure the tubing to the patient's inner thigh, allowing enough slack to prevent tension. Attach the drainage bag to the bedframe, keeping it lower than the patient's bladder. Do not attach the drainage bag to the side rail of the bed. Coil any excess tubing on the bed and clip the drainage tubing to the edge of the mattress. Make sure the flow of urine is unobstructed.</p>
+					<p>If you're caring for an uncircumcised patient whose foreskin was retracted, cleanse the area to remove any remaining iodine-based solution, and replace the foreskin over the glans. Provide the patient with hygiene care as needed, and help him into a comfortable position. Dispose of your supplies. Remove and discard your gloves and perform hand hygiene.</p>
+					<p><strong>NURSE:</strong> Lean your head up a little bit.<br/><strong>PATIENT:</strong> Alright.<br/><strong>NURSE:</strong> Are you comfortable there?<br/><strong>PATIENT:</strong> Yes.</p>
+					<p>Provide patient teaching. Use Teach Back to promote patient understanding.</p>
+					<p><strong>NURSE:</strong> Ok, so now that the catheter is in we want to keep the insertion area clean.<br/><strong>NURSE:</strong> We don't want the catheter pulled or anything like that.<br/><strong>NURSE:</strong> So if you are up and walking around, make sure that you have it secured to your body, ok?<br/><strong>NURSE:</strong> Can you repeat what I said so I make sure that you understand?<br/><strong>PATIENT:</strong> Now that the catheter is in, don't pull on it. And... uh... what else did you say?<br/><strong>NURSE:</strong> Keep the area clean.<br/><strong>PATIENT:</strong> Keep the area clean.<br/><strong>NURSE:</strong> Do you have any other questions?<br/><strong>PATIENT:</strong> No, not right now... thanks.<br/><strong>NURSE:</strong> Ok. I'll check back with you in a bit.</p>
+					<p>Document the procedure making sure to include the amount of fluid used to inflate the balloon. Note how the patient tolerated the insertion and whether there were any complications.</p>
+					<p><strong>NURSE:</strong> Hi. You feeling ok?<br/><strong>PATIENT:</strong> I am. Thanks.<br/><strong>NURSE:</strong> I am going to empty the urine that we have in the bag here, okay?</p>
+					<p>As part of your follow-up care, measure and record urine output and characteristics of the urine.</p>
+				</div>
+			</div>
+
 			<SkillResourceModal />
 		</main>
 	</body>
 </html>
+
+<script>
+	function updateProgress() {
+		const items = document.querySelectorAll('.cl-item');
+		const checked = document.querySelectorAll('.cl-item:checked').length;
+		const progress = document.getElementById('cl-progress') as HTMLProgressElement;
+		const count = document.getElementById('cl-count');
+		if (progress) progress.value = checked;
+		if (count) count.textContent = `${checked} / ${items.length}`;
+	}
+
+	function resetChecklist() {
+		document.querySelectorAll('.cl-item').forEach((el) => {
+			(el as HTMLInputElement).checked = false;
+		});
+		updateProgress();
+	}
+
+	document.querySelectorAll('.cl-item').forEach((el) => {
+		el.addEventListener('change', updateProgress);
+	});
+</script>
